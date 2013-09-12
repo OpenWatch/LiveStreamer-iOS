@@ -888,6 +888,7 @@
 		D90FE16817E1115000D7C6F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LiveStreamer/LiveStreamer-Prefix.pch";
 				INFOPLIST_FILE = "LiveStreamer/LiveStreamer-Info.plist";
@@ -903,6 +904,7 @@
 		D90FE16917E1115000D7C6F5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LiveStreamer/LiveStreamer-Prefix.pch";
 				INFOPLIST_FILE = "LiveStreamer/LiveStreamer-Info.plist";
@@ -934,6 +936,7 @@
 				D90FE16917E1115000D7C6F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

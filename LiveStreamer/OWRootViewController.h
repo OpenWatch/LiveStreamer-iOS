@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OWCaptureViewController.h"
 
-@interface OWRootViewController : UIViewController
+@interface OWRootViewController : UIViewController <OWCaptureDelegate>
+
+@property (nonatomic, strong) UIButton *testButton;
 
 @end

@@ -201,7 +201,7 @@
 		}
         
         
-        if (self.delegate && [self.delegate respondsToSelector:@selector(captureViewController:didFinishRecording:)]) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(captureViewControllerDidFinishRecording:)]) {
             [self.delegate captureViewControllerDidFinishRecording:self];
         }
 	});

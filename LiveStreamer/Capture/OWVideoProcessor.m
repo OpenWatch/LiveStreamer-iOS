@@ -130,13 +130,30 @@
 
 
 - (void) initializeAssetWriters {
+    static NSString *testCountKey = @"test_count";
     // Create an asset writer
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSUInteger testCount = [[defaults objectForKey:testCountKey] unsignedIntegerValue];
+    
+    
     NSString *basePath = [OWUtilities applicationDocumentsDirectory];
-    NSURL *hqURL = [NSURL fileURLWithPath:[basePath stringByAppendingPathComponent:@"hq.mp4"]];
+    NSString *folderName = [NSString stringWithFormat:@"/%d/", testCount];
+    NSString *folderPath = [basePath stringByAppendingPathComponent:folderName];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error = nil;
+    [fileManager createDirectoryAtPath:folderPath withIntermediateDirectories:YES attributes:nil error:&error];
+    if (error) {
+        [self showError:error];
+    }
+    NSString *hqFilePath = [basePath stringByAppendingPathComponent:@"hq.mp4"];
+    NSURL *hqURL = [NSURL fileURLWithPath:hqFilePath];
     
     
     self.appleEncoder1 = [[OWAppleEncoder alloc] initWithURL:hqURL movieFragmentInterval:CMTimeMakeWithSeconds(5, 30)];
-    self.appleEncoder2 = [[OWSegmentingAppleEncoder alloc] initWithBasePath:basePath segmentationInterval:10.0f];
+    self.appleEncoder2 = [[OWSegmentingAppleEncoder alloc] initWithBasePath:folderPath segmentationInterval:10.0f];
+    
+    testCount++;
+    [defaults setObject:@(testCount) forKey:testCountKey];
 }
 
 - (void) stopRecording
