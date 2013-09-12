@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class HTTPServer;
+
+#define OW_APP_DELEGATE ((OWAppDelegate*)[UIApplication sharedApplication].delegate)
+
 @interface OWAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) HTTPServer *httpServer;
+@property (nonatomic) BOOL forceLandscapeRight;
 
 @end

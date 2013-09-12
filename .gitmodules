@@ -1,0 +1,9 @@
+[submodule "Submodules/CocoaHTTPServer"]
+	path = Submodules/CocoaHTTPServer
+	url = https://github.com/robbiehanson/CocoaHTTPServer.git
+[submodule "Submodules/FFmpeg-iOS"]
+	path = Submodules/FFmpeg-iOS
+	url = git@github.com:chrisballinger/FFmpeg-iOS.git
+[submodule "Submodules/BButton"]
+	path = Submodules/BButton
+	url = https://github.com/mattlawer/BButton.git
