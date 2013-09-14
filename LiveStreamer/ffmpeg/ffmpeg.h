@@ -442,5 +442,6 @@ int ist_in_filtergraph(FilterGraph *fg, InputStream *ist);
 FilterGraph *init_simple_filtergraph(InputStream *ist, OutputStream *ost);
 
 int ffmpeg_parse_options(int argc, char **argv);
+int fake_main(int argc, char **argv);
 
 #endif /* FFMPEG_H */
