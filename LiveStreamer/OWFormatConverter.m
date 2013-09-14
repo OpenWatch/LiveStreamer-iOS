@@ -34,7 +34,9 @@
 #import "libavutil/imgutils.h"
 #import "libavutil/samplefmt.h"
 #import "libavutil/timestamp.h"
+#import "libavutil/avassert.h"
 #import "libavformat/avformat.h"
+#import "ffmpeg.h"
 
 @interface OWFormatConverter() {
     uint8_t *video_dst_data[4];
@@ -43,11 +45,6 @@
     AVCodecContext *video_dec_ctx, *audio_dec_ctx;
     AVStream *video_stream, *audio_stream;
     const char *src_filename;
-    const char *video_dst_filename;
-    const char *audio_dst_filename;
-    FILE *video_dst_file;
-    FILE *audio_dst_file;
-    
     
     int video_dst_bufsize;
     
@@ -60,6 +57,11 @@
     AVPacket pkt;
     int video_frame_count;
     int audio_frame_count;
+    
+    FILE *video_dst_file;
+    FILE *audio_dst_file;
+    const char *audio_dst_filename;
+    const char *video_dst_filename;
 }
 
 @end
@@ -74,10 +76,6 @@
         video_stream = NULL;
         audio_stream = NULL;
         src_filename = NULL;
-        video_dst_filename = NULL;
-        audio_dst_filename = NULL;
-        video_dst_file = NULL;
-        audio_dst_file = NULL;
         
         audio_dst_data = NULL;
 
@@ -94,6 +92,7 @@
     
     if (pkt.stream_index == video_stream_idx) {
         /* decode video frame */
+        
         ret = avcodec_decode_video2(video_dec_ctx, frame, got_frame, &pkt);
         if (ret < 0) {
             fprintf(stderr, "Error decoding video frame\n");
@@ -252,6 +251,8 @@
     }
     */
     
+    video_dst_filename = [[outputPath stringByAppendingString:@".vid"] UTF8String];
+    audio_dst_filename = [[outputPath stringByAppendingString:@".aud"] UTF8String];
     
     src_filename = [inputPath UTF8String];
     const char * output_filename = [outputPath UTF8String];
@@ -261,11 +262,7 @@
     
     
     /* allocate the output media context */
-    avformat_alloc_output_context2(&oc, NULL, NULL, output_filename);
-    if (!oc) {
-        printf("Could not deduce output format from file extension: using MPEGTS.\n");
-        avformat_alloc_output_context2(&oc, NULL, "mpegts", output_filename);
-    }
+    avformat_alloc_output_context2(&oc, NULL, "mpegts", output_filename);
     if (!oc) {
         NSLog(@"No output context!");
         return;

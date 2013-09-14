@@ -8,6 +8,8 @@
 
 #import "OWRootViewController.h"
 #import "OWCaptureViewController.h"
+#import "OWUtilities.h"
+#import "OWFormatConverter.h"
 
 @interface OWRootViewController ()
 
@@ -29,9 +31,28 @@
 }
 
 - (void) testButtonPressed:(id)sender {
+    NSArray *paths = [[NSBundle mainBundle] pathsForResourcesOfType:@"mp4" inDirectory:@"web"];
+    NSString *basePath = [OWUtilities applicationDocumentsDirectory];
+    NSString *outputFile = [basePath stringByAppendingPathComponent:@"test.ts"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if([fileManager fileExistsAtPath:outputFile]) {
+        [fileManager removeItemAtPath:outputFile error:nil];
+    }
+    [paths enumerateObjectsUsingBlock:^(NSString *path, NSUInteger idx, BOOL *stop) {
+        NSLog(@"path %d: %@", idx, path);
+        OWFormatConverter *formatConverter = [[OWFormatConverter alloc] init];
+        [formatConverter convertFileAtPath:path outputPath:outputFile completionBlock:^(NSString *outputPath, NSError *error) {
+            NSLog(@"completed");
+        }];
+        *stop = YES;
+    }];
+    
+
+    /*
     OWCaptureViewController *captureViewController = [[OWCaptureViewController alloc] init];
     captureViewController.delegate = self;
     [self presentViewController:captureViewController animated:YES completion:nil];
+     */
 }
 
 
