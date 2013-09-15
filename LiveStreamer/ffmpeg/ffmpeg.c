@@ -3332,8 +3332,13 @@ static void log_callback_null(void *ptr, int level, const char *fmt, va_list vl)
 {
 }
 
-int fake_main(int argc, char **argv)
+int ffmpeg_main(int argc, char **argv)
 {
+    printf("ffmpeg argument count: %d\n", argc);
+    for (int i = 0; i < argc; i++) {
+        printf("%d: %s\n", i, argv[i]);
+    }
+    
     int ret;
     int64_t ti;
 

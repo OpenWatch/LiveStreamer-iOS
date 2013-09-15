@@ -14,4 +14,6 @@ typedef void(^OWFormatConverterCallback)(NSString *outputPath, NSError *error);
 
 - (void) convertFileAtPath:(NSString*)inputPath outputPath:(NSString*)outputPath completionBlock:(OWFormatConverterCallback)completionCallback;
 
++ (OWFormatConverter *)sharedInstance;
+
 @end

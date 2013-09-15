@@ -77,6 +77,7 @@
 		D9710E7D17E516C8009FA901 /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9710E7B17E516C8009FA901 /* libavfilter.a */; };
 		D9710E7E17E516C8009FA901 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9710E7C17E516C8009FA901 /* libswresample.a */; };
 		D9710E7F17E518C0009FA901 /* ffmpeg_filter.c in Sources */ = {isa = PBXBuildFile; fileRef = D97748A917E3CD30006AC769 /* ffmpeg_filter.c */; };
+		D9710E8617E5305F009FA901 /* FFmpegWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D9710E8517E5305F009FA901 /* FFmpegWrapper.m */; };
 		D977488817E3C5F4006AC769 /* cmdutils.c in Sources */ = {isa = PBXBuildFile; fileRef = D977488117E3C5F4006AC769 /* cmdutils.c */; };
 		D977488917E3C5F4006AC769 /* ffmpeg_opt.c in Sources */ = {isa = PBXBuildFile; fileRef = D977488417E3C5F4006AC769 /* ffmpeg_opt.c */; };
 		D977488A17E3C5F4006AC769 /* ffmpeg.c in Sources */ = {isa = PBXBuildFile; fileRef = D977488517E3C5F4006AC769 /* ffmpeg.c */; };
@@ -280,6 +281,8 @@
 		D91F317617E28B0000D67D73 /* muxing.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = muxing.c; path = "Submodules/FFmpeg-iOS/build/src/ffmpeg-2.0.1/doc/examples/muxing.c"; sourceTree = "<group>"; };
 		D9710E7B17E516C8009FA901 /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavfilter.a; sourceTree = "<group>"; };
 		D9710E7C17E516C8009FA901 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswresample.a; sourceTree = "<group>"; };
+		D9710E8417E5305F009FA901 /* FFmpegWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFmpegWrapper.h; sourceTree = "<group>"; };
+		D9710E8517E5305F009FA901 /* FFmpegWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFmpegWrapper.m; sourceTree = "<group>"; };
 		D977488017E3C5F4006AC769 /* cmdutils_common_opts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cmdutils_common_opts.h; path = LiveStreamer/ffmpeg/cmdutils_common_opts.h; sourceTree = "<group>"; };
 		D977488117E3C5F4006AC769 /* cmdutils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cmdutils.c; path = LiveStreamer/ffmpeg/cmdutils.c; sourceTree = "<group>"; };
 		D977488217E3C5F4006AC769 /* cmdutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cmdutils.h; path = LiveStreamer/ffmpeg/cmdutils.h; sourceTree = "<group>"; };
@@ -375,6 +378,8 @@
 		D90FE15317E1115000D7C6F5 /* LiveStreamer */ = {
 			isa = PBXGroup;
 			children = (
+				D9710E8417E5305F009FA901 /* FFmpegWrapper.h */,
+				D9710E8517E5305F009FA901 /* FFmpegWrapper.m */,
 				D91F315317E259E200D67D73 /* OWFormatConverter.h */,
 				D91F315417E259E300D67D73 /* OWFormatConverter.m */,
 				D90FE23D17E13BE600D7C6F5 /* Capture */,
@@ -890,6 +895,7 @@
 				D9710E7F17E518C0009FA901 /* ffmpeg_filter.c in Sources */,
 				D90FE1A017E11D0500D7C6F5 /* HTTPFileResponse.m in Sources */,
 				D90FE1A117E11D0500D7C6F5 /* HTTPRedirectResponse.m in Sources */,
+				D9710E8617E5305F009FA901 /* FFmpegWrapper.m in Sources */,
 				D90FE1A217E11D0500D7C6F5 /* WebSocket.m in Sources */,
 				D90FE1BC17E11D1F00D7C6F5 /* GCDAsyncSocket.m in Sources */,
 				D90FE1BE17E11D1F00D7C6F5 /* DDAbstractDatabaseLogger.m in Sources */,

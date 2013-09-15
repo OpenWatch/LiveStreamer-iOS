@@ -30,33 +30,35 @@
 
 
 #import "OWFormatConverter.h"
-#import "ffmpeg.h"
+#import "FFmpegWrapper.h"
 
 @interface OWFormatConverter()
+@property (nonatomic) dispatch_queue_t conversionQueue;
 @end
 
 @implementation OWFormatConverter
+@synthesize conversionQueue;
 
 - (id) init {
     if (self = [super init]) {
+        self.conversionQueue = dispatch_queue_create("ffmpeg conversion queue", NULL);
     }
     return self;
 }
 
-- (void) convertFileAtPath:(NSString*)inputPath outputPath:(NSString*)outputPath completionBlock:(OWFormatConverterCallback)completionCallback {
-    //ffmpeg -i input.mp4 -f mpegts -vcodec copy -acodec copy -vbsf h264_mp4toannexb output.ts
++ (OWFormatConverter *)sharedInstance {
+    static OWFormatConverter *_sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedInstance = [[OWFormatConverter alloc] init];
+    });
+    return _sharedInstance;
+}
 
-    NSArray *options = @[@"-i", inputPath, @"-f", @"mpegts", @"-vcodec", @"copy", @"-acodec", @"copy", @"-vbsf", @"h264_mp4toannexb", outputPath];
-    int argc = [options count];
-    char **argv = malloc(sizeof(char*) * argc);
+- (void) convertFileAtPath:(NSString*)inputPath outputPath:(NSString*)outputPath completionBlock:(OWFormatConverterCallback)completionCallback {
     
-    [options enumerateObjectsUsingBlock:^(NSString *option, NSUInteger i, BOOL *stop) {
-        argv[i] = (char*)[option UTF8String];
-    }];
-    
-    int returnValue = fake_main(argc, argv);
-    NSLog(@"ffmpeg return value: %d", returnValue);
-    free(argv);
+    dispatch_async(conversionQueue, ^{
+            });
 }
 
 @end

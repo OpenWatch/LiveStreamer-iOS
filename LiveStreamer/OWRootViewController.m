@@ -10,6 +10,7 @@
 #import "OWCaptureViewController.h"
 #import "OWUtilities.h"
 #import "OWFormatConverter.h"
+#import "FFmpegWrapper.h"
 
 @interface OWRootViewController ()
 
@@ -38,12 +39,14 @@
     if([fileManager fileExistsAtPath:outputFile]) {
         [fileManager removeItemAtPath:outputFile error:nil];
     }
+    NSArray *options = @[@"-f", @"mpegts", @"-vcodec", @"copy", @"-acodec", @"copy", @"-vbsf", @"h264_mp4toannexb"];
+
     [paths enumerateObjectsUsingBlock:^(NSString *path, NSUInteger idx, BOOL *stop) {
         NSLog(@"path %d: %@", idx, path);
-        OWFormatConverter *formatConverter = [[OWFormatConverter alloc] init];
-        [formatConverter convertFileAtPath:path outputPath:outputFile completionBlock:^(NSString *outputPath, NSError *error) {
-            NSLog(@"completed");
+        FFmpegWrapper *wrapper = [[FFmpegWrapper alloc] initWithInputFileAtPath:path options:options outputPath:outputFile completionBlock:^(BOOL success, NSError *error) {
+            NSLog(@"completed %@, %@", outputFile, error.userInfo);
         }];
+        [wrapper start];
         *stop = YES;
     }];
     
