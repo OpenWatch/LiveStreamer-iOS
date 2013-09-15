@@ -9,7 +9,6 @@
 #import "OWRootViewController.h"
 #import "OWCaptureViewController.h"
 #import "OWUtilities.h"
-#import "OWFormatConverter.h"
 #import "FFmpegWrapper.h"
 
 @interface OWRootViewController ()
@@ -43,10 +42,9 @@
 
     [paths enumerateObjectsUsingBlock:^(NSString *path, NSUInteger idx, BOOL *stop) {
         NSLog(@"path %d: %@", idx, path);
-        FFmpegWrapper *wrapper = [[FFmpegWrapper alloc] initWithInputFileAtPath:path options:options outputPath:outputFile completionBlock:^(BOOL success, NSError *error) {
-            NSLog(@"completed %@, %@", outputFile, error.userInfo);
+        [[FFmpegWrapper sharedInstance] convertInputPath:path outputPath:outputFile options:options completionBlock:^(BOOL success, NSError *error) {
+            NSLog(@"complete: %d %@", success, error.userInfo);
         }];
-        [wrapper start];
         *stop = YES;
     }];
     

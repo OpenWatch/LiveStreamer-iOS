@@ -68,7 +68,6 @@
 		D90FE27217E1445A00D7C6F5 /* MediaToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D90FE27117E1445900D7C6F5 /* MediaToolbox.framework */; };
 		D90FE27417E1447C00D7C6F5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D90FE27317E1447C00D7C6F5 /* MobileCoreServices.framework */; };
 		D90FE27517E1459F00D7C6F5 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D90FE26B17E1443C00D7C6F5 /* CoreVideo.framework */; };
-		D91F315517E259E300D67D73 /* OWFormatConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = D91F315417E259E300D67D73 /* OWFormatConverter.m */; };
 		D91F315717E25A0C00D67D73 /* red_dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D91F315617E25A0C00D67D73 /* red_dot@2x.png */; };
 		D91F315D17E268E700D67D73 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D91F315C17E268E700D67D73 /* libz.dylib */; };
 		D91F315F17E268F200D67D73 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D91F315E17E268F200D67D73 /* libiconv.dylib */; };
@@ -270,8 +269,6 @@
 		D90FE26F17E1445000D7C6F5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D90FE27117E1445900D7C6F5 /* MediaToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaToolbox.framework; path = System/Library/Frameworks/MediaToolbox.framework; sourceTree = SDKROOT; };
 		D90FE27317E1447C00D7C6F5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		D91F315317E259E200D67D73 /* OWFormatConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWFormatConverter.h; sourceTree = "<group>"; };
-		D91F315417E259E300D67D73 /* OWFormatConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWFormatConverter.m; sourceTree = "<group>"; };
 		D91F315617E25A0C00D67D73 /* red_dot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "red_dot@2x.png"; path = "Media/red_dot@2x.png"; sourceTree = "<group>"; };
 		D91F315C17E268E700D67D73 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		D91F315E17E268F200D67D73 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
@@ -380,8 +377,6 @@
 			children = (
 				D9710E8417E5305F009FA901 /* FFmpegWrapper.h */,
 				D9710E8517E5305F009FA901 /* FFmpegWrapper.m */,
-				D91F315317E259E200D67D73 /* OWFormatConverter.h */,
-				D91F315417E259E300D67D73 /* OWFormatConverter.m */,
 				D90FE23D17E13BE600D7C6F5 /* Capture */,
 				D90FE15C17E1115000D7C6F5 /* OWAppDelegate.h */,
 				D90FE15D17E1115000D7C6F5 /* OWAppDelegate.m */,
@@ -899,7 +894,6 @@
 				D90FE1A217E11D0500D7C6F5 /* WebSocket.m in Sources */,
 				D90FE1BC17E11D1F00D7C6F5 /* GCDAsyncSocket.m in Sources */,
 				D90FE1BE17E11D1F00D7C6F5 /* DDAbstractDatabaseLogger.m in Sources */,
-				D91F315517E259E300D67D73 /* OWFormatConverter.m in Sources */,
 				D90FE1BF17E11D1F00D7C6F5 /* DDASLLogger.m in Sources */,
 				D90FE1C017E11D1F00D7C6F5 /* DDFileLogger.m in Sources */,
 				D90FE1C117E11D1F00D7C6F5 /* DDLog.m in Sources */,

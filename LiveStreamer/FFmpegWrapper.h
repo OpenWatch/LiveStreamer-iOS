@@ -10,13 +10,10 @@
 
 typedef void(^FFmpegWrapperCallback)(BOOL success, NSError *error);
 
-@interface FFmpegWrapper : NSThread
+@interface FFmpegWrapper : NSObject
 
-@property (nonatomic, strong) FFmpegWrapperCallback completionCallback;
-@property (nonatomic, strong) NSString *inputPath;
-@property (nonatomic, strong) NSString *outputPath;
-@property (nonatomic, strong) NSArray *options;
++ (FFmpegWrapper *)sharedInstance;
 
-- (id) initWithInputFileAtPath:(NSString*)inputPath options:(NSArray*)options outputPath:(NSString*)outputPath completionBlock:(FFmpegWrapperCallback)completionCallback;
+- (void) convertInputPath:(NSString*)inputPath outputPath:(NSString*)outputPath options:(NSArray*)options completionBlock:(FFmpegWrapperCallback)completionCallback;
 
 @end
