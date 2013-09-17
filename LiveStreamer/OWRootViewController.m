@@ -16,6 +16,7 @@
 @end
 
 @implementation OWRootViewController
+@synthesize wrapper;
 
 - (id)init
 {
@@ -26,6 +27,8 @@
         [self.testButton setTitle:@"Start Test" forState:UIControlStateNormal];
         [self.testButton addTarget:self action:@selector(testButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:self.testButton];
+        self.wrapper = [[FFmpegWrapper alloc] init];
+
     }
     return self;
 }
@@ -38,7 +41,6 @@
     if([fileManager fileExistsAtPath:outputFile]) {
         [fileManager removeItemAtPath:outputFile error:nil];
     }
-    FFmpegWrapper *wrapper = [[FFmpegWrapper alloc] init];
     NSDictionary *options = @{kFFmpegOutputFormatKey: @"mp4"};
 
     [paths enumerateObjectsUsingBlock:^(NSString *path, NSUInteger idx, BOOL *stop) {

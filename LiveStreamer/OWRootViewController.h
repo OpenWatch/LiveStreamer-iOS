@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "OWCaptureViewController.h"
+#import "FFmpegWrapper.h"
 
 @interface OWRootViewController : UIViewController <OWCaptureDelegate>
 
 @property (nonatomic, strong) UIButton *testButton;
+@property (nonatomic, strong) FFmpegWrapper *wrapper;
 
 @end

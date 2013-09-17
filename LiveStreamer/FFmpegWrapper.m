@@ -28,6 +28,8 @@
 NSString const *kFFmpegInputFormatKey = @"kFFmpegInputFormatKey";
 NSString const *kFFmpegOutputFormatKey = @"kFFmpegOutputFormatKey";
 static NSString * const kFFmpegErrorDomain = @"org.ffmpeg.FFmpeg";
+static NSString * const kFFmpegErrorCode = @"kFFmpegErrorCode";
+
 
 @implementation FFmpegWrapper
 @synthesize conversionQueue, callbackQueue;
@@ -64,6 +66,7 @@ static NSString * const kFFmpegErrorDomain = @"org.ffmpeg.FFmpeg";
     if (description) {
         [userInfo setObject:description forKey:NSLocalizedDescriptionKey];
     }
+    [userInfo setObject:@(errorCode) forKey:kFFmpegErrorCode];
     return [NSError errorWithDomain:kFFmpegErrorDomain code:errorCode userInfo:userInfo];
 }
 
@@ -101,6 +104,7 @@ static NSString * const kFFmpegErrorDomain = @"org.ffmpeg.FFmpeg";
         // av_dict_set(&inputOptions, "pixel_format", "rgb24", 0);
         // av_dict_free(&inputOptions); // Don't forget to free
         
+        
         int openInputValue = avformat_open_input(&inputFormatContext, [inputPath UTF8String], inputFormat, &inputOptions);
         if (openInputValue != 0) {
             avformat_close_input(&inputFormatContext);
@@ -108,6 +112,7 @@ static NSString * const kFFmpegErrorDomain = @"org.ffmpeg.FFmpeg";
             return;
         }
         
+        // Open output format context
         AVFormatContext *outputFormatContext = NULL;
         NSString *outputFormatString = [options objectForKey:kFFmpegOutputFormatKey];
         
@@ -119,6 +124,32 @@ static NSString * const kFFmpegErrorDomain = @"org.ffmpeg.FFmpeg";
             return;
         }
         
+        // Read the input file
+        BOOL continueReading = YES;
+        AVPacket packet;
+        int frameReadValue = -1;
+        while (continueReading) {
+            frameReadValue = av_read_frame(inputFormatContext, &packet);
+            if (frameReadValue != 0) {
+                continueReading = NO;
+            }
+            
+            if (progressBlock) {
+                dispatch_async(callbackQueue, ^{
+                    progressBlock(packet.pos / 1.0);
+                });
+            }
+            av_free_packet(&packet);
+        }
+        if (frameReadValue < 0 && frameReadValue != AVERROR_EOF) {
+            avformat_close_input(&inputFormatContext);
+            avformat_free_context(outputFormatContext);
+            [[self class] handleBadReturnValue:frameReadValue completionBlock:completionBlock queue:callbackQueue];
+            return;
+        }
+        
+        
+        // Yay looks good!
         avformat_close_input(&inputFormatContext);
         avformat_free_context(outputFormatContext);
         success = YES;
