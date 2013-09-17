@@ -29,14 +29,14 @@
 ///-------------------------------------------------
 
 /**
- This callback is called when a job has finished or has failed. Always called on the main queue.
+ This callback is called when a job has finished or has failed. Defaults to the main queue.
  @param success Whether or not the job was successful.
  @param error If the job was not successful, there might be an error in here.
  */
 typedef void(^FFmpegWrapperCompletionBlock)(BOOL success, NSError *error);
 
 /**
- This callback periodically reports on the progress of the job. Always called on the main queue. **Currently unused!**
+ This callback periodically reports on the progress of the job. Defaults to the main queue. **Currently unused!**
  @param progress The estimated progress until the current job is complete, valid values range from [0.0, 1.0].
  */
 typedef void(^FFmpegWrapperProgressBlock)(double progress);
@@ -46,11 +46,26 @@ typedef void(^FFmpegWrapperProgressBlock)(double progress);
 ///-------------------------------------------------
 
 /**
- This controls the type of container for the output format. Accepts NSString values like @"mp4", @"avi", @"mpegts". For a full list of supported formats please consult `$ ffmpeg -formats`.
+ Optional. This controls the type of container for the input format. Accepts NSString values like @"mp4", @"avi", @"mpegts". For a full list of supported formats please consult `$ ffmpeg -formats`.
  */
-static NSString *kFFmpegOutputFormatKey = @"kFFmpegOutputFormatKey";
+extern NSString const *kFFmpegInputFormatKey;
+
+/**
+ Required. This controls the type of container for the output format. Accepts NSString values like @"mp4", @"avi", @"mpegts". For a full list of supported formats please consult `$ ffmpeg -formats`.
+ */
+extern NSString const *kFFmpegOutputFormatKey;
 
 @interface FFmpegWrapper : NSObject
+
+/**
+ Queue for all conversion jobs. (defaults to FIFO background queue)
+ */
+@property (nonatomic) dispatch_queue_t conversionQueue;
+
+/**
+ Queue for all callbacks. (defaults to main queue)
+ */
+@property (nonatomic) dispatch_queue_t callbackQueue;
 
 ///-------------------------------------------------
 /// @name Conversion
@@ -62,9 +77,9 @@ static NSString *kFFmpegOutputFormatKey = @"kFFmpegOutputFormatKey";
  @param inputPath Full path to the input file.
  @param outputPath Full path to output file.
  @param options Dictionary of key value pairs for settings.
- @param progressBlock Always called on main queue.
- @param completionblock Always called on main queue.
+ @param progressBlock Defaults to the main queue.
+ @param completionblock Defaults to the main queue.
  */
-+ (void) convertInputPath:(NSString*)inputPath outputPath:(NSString*)outputPath options:(NSDictionary*)options progressBlock:(FFmpegWrapperProgressBlock)progressBlock completionBlock:(FFmpegWrapperCompletionBlock)completionBlock;
+- (void) convertInputPath:(NSString*)inputPath outputPath:(NSString*)outputPath options:(NSDictionary*)options progressBlock:(FFmpegWrapperProgressBlock)progressBlock completionBlock:(FFmpegWrapperCompletionBlock)completionBlock;
 
 @end

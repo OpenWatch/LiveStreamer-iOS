@@ -38,11 +38,12 @@
     if([fileManager fileExistsAtPath:outputFile]) {
         [fileManager removeItemAtPath:outputFile error:nil];
     }
+    FFmpegWrapper *wrapper = [[FFmpegWrapper alloc] init];
     NSDictionary *options = @{kFFmpegOutputFormatKey: @"mp4"};
 
     [paths enumerateObjectsUsingBlock:^(NSString *path, NSUInteger idx, BOOL *stop) {
         NSLog(@"path %d: %@", idx, path);
-        [FFmpegWrapper convertInputPath:path outputPath:outputFile options:options progressBlock:^(double progress) {
+        [wrapper convertInputPath:path outputPath:outputFile options:options progressBlock:^(double progress) {
             NSLog(@"progress: %f", progress);
         } completionBlock:^(BOOL success, NSError *error) {
             if (success) {

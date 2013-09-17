@@ -23,23 +23,90 @@
 //
 
 #import "FFmpegWrapper.h"
+#import "avformat.h"
 
-static dispatch_queue_t conversionQueue;
+NSString const *kFFmpegInputFormatKey = @"kFFmpegInputFormatKey";
+NSString const *kFFmpegOutputFormatKey = @"kFFmpegOutputFormatKey";
+static NSString * const kFFmpegErrorDomain = @"org.ffmpeg.FFmpeg";
 
 @implementation FFmpegWrapper
+@synthesize conversionQueue, callbackQueue;
 
-+ (void) convertInputPath:(NSString*)inputPath outputPath:(NSString*)outputPath options:(NSArray*)options progressBlock:(FFmpegWrapperProgressBlock)progressBlock completionBlock:(FFmpegWrapperCompletionBlock)completionBlock {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        conversionQueue = dispatch_queue_create("ffmpeg conversion queue", NULL);
-    });
+- (void) dealloc {
+    avformat_network_deinit();
+}
+
+- (id) init {
+    if (self = [super init]) {
+        self.conversionQueue = dispatch_queue_create("ffmpeg conversion queue", NULL);
+        self.callbackQueue = dispatch_get_main_queue();
+        av_register_all();
+        avformat_network_init();
+    }
+    return self;
+}
+
++ (NSString*) stringForAVErrorNumber:(int)errorNumber {
+    NSString *errorString = nil;
+    char *errorBuffer = malloc(sizeof(char) * AV_ERROR_MAX_STRING_SIZE);
     
+    int value = av_strerror(errorNumber, errorBuffer, AV_ERROR_MAX_STRING_SIZE);
+    if (value != 0) {
+        return nil;
+    }
+    errorString = [NSString stringWithUTF8String:errorBuffer];
+    free(errorBuffer);
+    return errorString;
+}
+
++ (NSError*) errorWithCode:(int)errorCode localizedDescription:(NSString*)description {
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithCapacity:1];
+    if (description) {
+        [userInfo setObject:description forKey:NSLocalizedDescriptionKey];
+    }
+    return [NSError errorWithDomain:kFFmpegErrorDomain code:errorCode userInfo:userInfo];
+}
+
++ (NSError*) errorForAVErrorNumber:(int)errorNumber {
+    NSString *description = [self stringForAVErrorNumber:errorNumber];
+    return [self errorWithCode:errorNumber localizedDescription:description];
+}
+
+- (void) convertInputPath:(NSString*)inputPath outputPath:(NSString*)outputPath options:(NSDictionary*)options progressBlock:(FFmpegWrapperProgressBlock)progressBlock completionBlock:(FFmpegWrapperCompletionBlock)completionBlock {
     dispatch_async(conversionQueue, ^{
         BOOL success = NO;
         NSError *error = nil;
         
+        // You can override the detected input format
+        AVInputFormat *inputFormat = NULL;
+        NSString *inputFormatString = [options objectForKey:kFFmpegInputFormatKey];
+        if (inputFormatString) {
+            inputFormat = av_find_input_format([inputFormatString UTF8String]);
+        }
+        
+        AVDictionary *inputOptions = NULL;
+        // It's possible to send more options to the parser
+        // av_dict_set(&inputOptions, "video_size", "640x480", 0);
+        // av_dict_set(&inputOptions, "pixel_format", "rgb24", 0);
+        // av_dict_free(&inputOptions); // Don't forget to free
+        
+        AVFormatContext *inputFormatContext = NULL;
+        int returnValue = avformat_open_input(&inputFormatContext, [inputPath UTF8String], inputFormat, &inputOptions);
+        if (returnValue != 0) {
+            if (completionBlock) {
+                NSError *error = [[self class] errorForAVErrorNumber:returnValue];
+                dispatch_async(callbackQueue, ^{
+                    completionBlock(NO, error);
+                });
+            }
+            return;
+        }
+        
+        avformat_close_input(&inputFormatContext);
+        success = YES;
+        error = nil;
         if (completionBlock) {
-            dispatch_async(dispatch_get_main_queue(), ^{
+            dispatch_async(callbackQueue, ^{
                 completionBlock(success, error);
             });
         }
