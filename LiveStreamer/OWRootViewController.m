@@ -38,12 +38,18 @@
     if([fileManager fileExistsAtPath:outputFile]) {
         [fileManager removeItemAtPath:outputFile error:nil];
     }
-    NSArray *options = @[@"-f", @"mpegts", @"-vcodec", @"copy", @"-acodec", @"copy", @"-vbsf", @"h264_mp4toannexb"];
+    NSDictionary *options = @{kFFmpegOutputFormatKey: @"mp4"};
 
     [paths enumerateObjectsUsingBlock:^(NSString *path, NSUInteger idx, BOOL *stop) {
         NSLog(@"path %d: %@", idx, path);
-        [[FFmpegWrapper sharedInstance] convertInputPath:path outputPath:outputFile options:options completionBlock:^(BOOL success, NSError *error) {
-            NSLog(@"complete: %d %@", success, error.userInfo);
+        [FFmpegWrapper convertInputPath:path outputPath:outputFile options:options progressBlock:^(double progress) {
+            NSLog(@"progress: %f", progress);
+        } completionBlock:^(BOOL success, NSError *error) {
+            if (success) {
+                NSLog(@"success!");
+            } else {
+                NSLog(@"error: %@", error.userInfo);
+            }
         }];
         *stop = YES;
     }];

@@ -1,71 +1,46 @@
 //
 //  FFmpegWrapper.m
-//  LiveStreamer
+//  FFmpegWrapper
 //
 //  Created by Christopher Ballinger on 9/14/13.
 //  Copyright (c) 2013 OpenWatch, Inc. All rights reserved.
 //
+//  This file is part of FFmpegWrapper.
+//
+//  FFmpegWrapper is free software; you can redistribute it and/or
+//  modify it under the terms of the GNU Lesser General Public
+//  License as published by the Free Software Foundation; either
+//  version 2.1 of the License, or (at your option) any later version.
+//
+//  FFmpegWrapper is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+//  Lesser General Public License for more details.
+//
+//  You should have received a copy of the GNU Lesser General Public
+//  License along with FFmpegWrapper; if not, write to the Free Software
+//  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+//
 
 #import "FFmpegWrapper.h"
-#import "ffmpeg.h"
-#import "cmdutils.h"
 
-@interface FFmpegWrapper()
-@property (nonatomic) dispatch_queue_t conversionQueue;
-@end
+static dispatch_queue_t conversionQueue;
 
 @implementation FFmpegWrapper
-@synthesize conversionQueue;
 
-- (id) init {
-    if (self = [super init]) {
-        self.conversionQueue = dispatch_queue_create("ffmpeg conversion queue", NULL);
-    }
-    return self;
-}
-
-+ (FFmpegWrapper *)sharedInstance {
-    static FFmpegWrapper *_sharedInstance = nil;
++ (void) convertInputPath:(NSString*)inputPath outputPath:(NSString*)outputPath options:(NSArray*)options progressBlock:(FFmpegWrapperProgressBlock)progressBlock completionBlock:(FFmpegWrapperCompletionBlock)completionBlock {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedInstance = [[FFmpegWrapper alloc] init];
+        conversionQueue = dispatch_queue_create("ffmpeg conversion queue", NULL);
     });
-    return _sharedInstance;
-}
-
-- (void) convertInputPath:(NSString*)inputPath outputPath:(NSString*)outputPath options:(NSArray*)options completionBlock:(FFmpegWrapperCallback)completionCallback {
+    
     dispatch_async(conversionQueue, ^{
-        //simulating ffmpeg -i input.mp4 -f mpegts -vcodec copy -acodec copy -vbsf h264_mp4toannexb output.ts
+        BOOL success = NO;
+        NSError *error = nil;
         
-        NSMutableArray *arguments = [NSMutableArray arrayWithCapacity:4+[options count]];
-        [arguments addObject:@"ffmpeg"];
-        [arguments addObject:@"-i"];
-        [arguments addObject:inputPath];
-        [arguments addObjectsFromArray:options];
-        [arguments addObject:outputPath];
-        
-        int argc = [arguments count];
-        char **argv = malloc(sizeof(char*) * (argc + 1));
-        
-        [arguments enumerateObjectsUsingBlock:^(NSString *option, NSUInteger i, BOOL *stop) {
-            const char * c_string = [option UTF8String];
-            int length = strlen(c_string);
-            char *c_string_copy = (char *) malloc(sizeof(char) * (length + 1));
-            strcpy(c_string_copy, c_string);
-            argv[i] = c_string_copy;
-        }];
-        argv[argc] = NULL;
-        
-        int returnValue = ffmpeg_main(argc, argv);
-        free(argv);
-        NSLog(@"ffmpeg return value: %d", returnValue);
-        if (completionCallback) {
+        if (completionBlock) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (returnValue == 0) {
-                    completionCallback(YES, nil);
-                }  else {
-                    completionCallback(NO, [NSError errorWithDomain:@"org.ffmpeg.ffmpeg" code:returnValue userInfo:nil]);
-                }
+                completionBlock(success, error);
             });
         }
     });
