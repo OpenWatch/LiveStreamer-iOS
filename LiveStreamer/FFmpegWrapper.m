@@ -72,6 +72,15 @@ static NSString * const kFFmpegErrorDomain = @"org.ffmpeg.FFmpeg";
     return [self errorWithCode:errorNumber localizedDescription:description];
 }
 
++ (void) handleBadReturnValue:(int)returnValue completionBlock:(FFmpegWrapperCompletionBlock)completionBlock queue:(dispatch_queue_t)queue {
+    if (completionBlock) {
+        NSError *error = [[self class] errorForAVErrorNumber:returnValue];
+        dispatch_async(queue, ^{
+            completionBlock(NO, error);
+        });
+    }
+}
+
 - (void) convertInputPath:(NSString*)inputPath outputPath:(NSString*)outputPath options:(NSDictionary*)options progressBlock:(FFmpegWrapperProgressBlock)progressBlock completionBlock:(FFmpegWrapperCompletionBlock)completionBlock {
     dispatch_async(conversionQueue, ^{
         BOOL success = NO;
@@ -79,30 +88,39 @@ static NSString * const kFFmpegErrorDomain = @"org.ffmpeg.FFmpeg";
         
         // You can override the detected input format
         AVInputFormat *inputFormat = NULL;
+        AVDictionary *inputOptions = NULL;
+        AVFormatContext *inputFormatContext = NULL;
+
         NSString *inputFormatString = [options objectForKey:kFFmpegInputFormatKey];
         if (inputFormatString) {
             inputFormat = av_find_input_format([inputFormatString UTF8String]);
         }
         
-        AVDictionary *inputOptions = NULL;
         // It's possible to send more options to the parser
         // av_dict_set(&inputOptions, "video_size", "640x480", 0);
         // av_dict_set(&inputOptions, "pixel_format", "rgb24", 0);
         // av_dict_free(&inputOptions); // Don't forget to free
         
-        AVFormatContext *inputFormatContext = NULL;
-        int returnValue = avformat_open_input(&inputFormatContext, [inputPath UTF8String], inputFormat, &inputOptions);
-        if (returnValue != 0) {
-            if (completionBlock) {
-                NSError *error = [[self class] errorForAVErrorNumber:returnValue];
-                dispatch_async(callbackQueue, ^{
-                    completionBlock(NO, error);
-                });
-            }
+        int openInputValue = avformat_open_input(&inputFormatContext, [inputPath UTF8String], inputFormat, &inputOptions);
+        if (openInputValue != 0) {
+            avformat_close_input(&inputFormatContext);
+            [[self class] handleBadReturnValue:openInputValue completionBlock:completionBlock queue:callbackQueue];
+            return;
+        }
+        
+        AVFormatContext *outputFormatContext = NULL;
+        NSString *outputFormatString = [options objectForKey:kFFmpegOutputFormatKey];
+        
+        int openOutputValue = avformat_alloc_output_context2(&outputFormatContext, NULL, [outputFormatString UTF8String], [outputPath UTF8String]);
+        if (openOutputValue < 0) {
+            avformat_close_input(&inputFormatContext);
+            avformat_free_context(outputFormatContext);
+            [[self class] handleBadReturnValue:openInputValue completionBlock:completionBlock queue:callbackQueue];
             return;
         }
         
         avformat_close_input(&inputFormatContext);
+        avformat_free_context(outputFormatContext);
         success = YES;
         error = nil;
         if (completionBlock) {
