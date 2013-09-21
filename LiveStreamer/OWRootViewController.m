@@ -36,7 +36,7 @@
 - (void) testButtonPressed:(id)sender {
     NSArray *paths = [[NSBundle mainBundle] pathsForResourcesOfType:@"mp4" inDirectory:@"web"];
     NSString *basePath = [OWUtilities applicationDocumentsDirectory];
-    NSString *outputFile = [basePath stringByAppendingPathComponent:@"test.ts"];
+    NSString *outputFile = [basePath stringByAppendingPathComponent:@"test.mp4"];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if([fileManager fileExistsAtPath:outputFile]) {
         [fileManager removeItemAtPath:outputFile error:nil];
@@ -44,8 +44,9 @@
     NSDictionary *options = @{kFFmpegOutputFormatKey: @"mp4"};
 
     [paths enumerateObjectsUsingBlock:^(NSString *path, NSUInteger idx, BOOL *stop) {
-        NSLog(@"path %d: %@", idx, path);
-        [wrapper convertInputPath:path outputPath:outputFile options:options progressBlock:^(double progress) {
+        NSLog(@"inputPath %@, outputPath %@", path, outputFile);
+        [wrapper convertInputPath:path outputPath:outputFile options:options progressBlock:^(NSUInteger bytesRead, unsigned long long totalBytesRead, unsigned long long totalBytesExpectedToRead) {
+            float progress = (float)totalBytesRead / totalBytesExpectedToRead;
             NSLog(@"progress: %f", progress);
         } completionBlock:^(BOOL success, NSError *error) {
             if (success) {
