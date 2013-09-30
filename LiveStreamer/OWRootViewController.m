@@ -45,7 +45,7 @@
 
     [paths enumerateObjectsUsingBlock:^(NSString *path, NSUInteger idx, BOOL *stop) {
         NSLog(@"inputPath %@, outputPath %@", path, outputFile);
-        [wrapper convertInputPath:path outputPath:outputFile options:options progressBlock:^(NSUInteger bytesRead, unsigned long long totalBytesRead, unsigned long long totalBytesExpectedToRead) {
+        [wrapper convertInputPath:path outputPath:outputFile options:options progressBlock:^(NSUInteger bytesRead, uint64_t totalBytesRead, uint64_t totalBytesExpectedToRead) {
             float progress = (float)totalBytesRead / totalBytesExpectedToRead;
             NSLog(@"progress: %f", progress);
         } completionBlock:^(BOOL success, NSError *error) {
