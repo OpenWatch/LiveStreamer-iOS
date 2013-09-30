@@ -68,6 +68,20 @@
 		D91F315F17E268F200D67D73 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D91F315E17E268F200D67D73 /* libiconv.dylib */; };
 		D91F316117E268FA00D67D73 /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D91F316017E268FA00D67D73 /* libbz2.dylib */; };
 		D91F317417E286BB00D67D73 /* web in Resources */ = {isa = PBXBuildFile; fileRef = D91F317317E286BB00D67D73 /* web */; };
+		D923BBB517F66525008FA332 /* cmdutils.c in Sources */ = {isa = PBXBuildFile; fileRef = D923BBA617F66525008FA332 /* cmdutils.c */; };
+		D923BBB617F66525008FA332 /* ffmpeg.c in Sources */ = {isa = PBXBuildFile; fileRef = D923BBA917F66525008FA332 /* ffmpeg.c */; };
+		D923BBB717F66525008FA332 /* ffmpeg_filter.c in Sources */ = {isa = PBXBuildFile; fileRef = D923BBAB17F66525008FA332 /* ffmpeg_filter.c */; };
+		D923BBB817F66525008FA332 /* ffmpeg_opt.c in Sources */ = {isa = PBXBuildFile; fileRef = D923BBAC17F66525008FA332 /* ffmpeg_opt.c */; };
+		D923BBB917F66525008FA332 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D923BBAE17F66525008FA332 /* libavcodec.a */; };
+		D923BBBA17F66525008FA332 /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D923BBAF17F66525008FA332 /* libavdevice.a */; };
+		D923BBBB17F66525008FA332 /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D923BBB017F66525008FA332 /* libavfilter.a */; };
+		D923BBBC17F66525008FA332 /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D923BBB117F66525008FA332 /* libavformat.a */; };
+		D923BBBD17F66525008FA332 /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D923BBB217F66525008FA332 /* libavutil.a */; };
+		D923BBBE17F66525008FA332 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D923BBB317F66525008FA332 /* libswresample.a */; };
+		D923BBBF17F66525008FA332 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D923BBB417F66525008FA332 /* libswscale.a */; };
+		D98388DF17F9F85F00A2E6ED /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D98388DE17F9F85F00A2E6ED /* libz.dylib */; };
+		D98388E117F9F86500A2E6ED /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D98388E017F9F86500A2E6ED /* libbz2.dylib */; };
+		D98388E317F9F87000A2E6ED /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D98388E217F9F87000A2E6ED /* libiconv.dylib */; };
 		D9F0AFA717ED1619007D0D08 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F0AFA017ED1619007D0D08 /* libavcodec.a */; };
 		D9F0AFA817ED161A007D0D08 /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F0AFA117ED1619007D0D08 /* libavdevice.a */; };
 		D9F0AFA917ED161A007D0D08 /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F0AFA217ED1619007D0D08 /* libavfilter.a */; };
@@ -77,6 +91,18 @@
 		D9F0AFAD17ED161A007D0D08 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F0AFA617ED1619007D0D08 /* libswscale.a */; };
 		D9F0AFB117ED1634007D0D08 /* FFmpegWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F0AFB017ED1634007D0D08 /* FFmpegWrapper.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D923BB9617F65845008FA332 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D90FE14A17E1114F00D7C6F5 /* LiveStreamer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveStreamer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,6 +212,21 @@
 		D91F315E17E268F200D67D73 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		D91F316017E268FA00D67D73 /* libbz2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.dylib; path = usr/lib/libbz2.dylib; sourceTree = SDKROOT; };
 		D91F317317E286BB00D67D73 /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; name = web; path = LiveStreamer/web; sourceTree = "<group>"; };
+		D923BB9817F65845008FA332 /* ffmpeg_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ffmpeg_test; sourceTree = BUILT_PRODUCTS_DIR; };
+		D923BBA617F66525008FA332 /* cmdutils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cmdutils.c; sourceTree = "<group>"; };
+		D923BBA717F66525008FA332 /* cmdutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmdutils.h; sourceTree = "<group>"; };
+		D923BBA817F66525008FA332 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		D923BBA917F66525008FA332 /* ffmpeg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffmpeg.c; sourceTree = "<group>"; };
+		D923BBAA17F66525008FA332 /* ffmpeg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffmpeg.h; sourceTree = "<group>"; };
+		D923BBAB17F66525008FA332 /* ffmpeg_filter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffmpeg_filter.c; sourceTree = "<group>"; };
+		D923BBAC17F66525008FA332 /* ffmpeg_opt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffmpeg_opt.c; sourceTree = "<group>"; };
+		D923BBAE17F66525008FA332 /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavcodec.a; sourceTree = "<group>"; };
+		D923BBAF17F66525008FA332 /* libavdevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavdevice.a; sourceTree = "<group>"; };
+		D923BBB017F66525008FA332 /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavfilter.a; sourceTree = "<group>"; };
+		D923BBB117F66525008FA332 /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavformat.a; sourceTree = "<group>"; };
+		D923BBB217F66525008FA332 /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavutil.a; sourceTree = "<group>"; };
+		D923BBB317F66525008FA332 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswresample.a; sourceTree = "<group>"; };
+		D923BBB417F66525008FA332 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
 		D93DA33917E90CE900736267 /* 012v.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = 012v.c; sourceTree = "<group>"; };
 		D93DA33A17E90CE900736267 /* 4xm.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = 4xm.c; sourceTree = "<group>"; };
 		D93DA33B17E90CE900736267 /* 8bps.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = 8bps.c; sourceTree = "<group>"; };
@@ -2390,6 +2431,9 @@
 		D93DABF217E90D0000736267 /* yuv2rgb.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = yuv2rgb.c; sourceTree = "<group>"; };
 		D93DABF317E90D0000736267 /* yuv2rgb_template.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = yuv2rgb_template.c; sourceTree = "<group>"; };
 		D93DABF417E90D0000736267 /* yuv2rgb.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = yuv2rgb.c; sourceTree = "<group>"; };
+		D98388DE17F9F85F00A2E6ED /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
+		D98388E017F9F86500A2E6ED /* libbz2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libbz2.dylib; sourceTree = DEVELOPER_DIR; };
+		D98388E217F9F87000A2E6ED /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		D9F0AFA017ED1619007D0D08 /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavcodec.a; path = "Submodules/FFmpegWrapper/Submodules/FFmpeg-iOS/dependencies/lib/libavcodec.a"; sourceTree = "<group>"; };
 		D9F0AFA117ED1619007D0D08 /* libavdevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavdevice.a; path = "Submodules/FFmpegWrapper/Submodules/FFmpeg-iOS/dependencies/lib/libavdevice.a"; sourceTree = "<group>"; };
 		D9F0AFA217ED1619007D0D08 /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavfilter.a; path = "Submodules/FFmpegWrapper/Submodules/FFmpeg-iOS/dependencies/lib/libavfilter.a"; sourceTree = "<group>"; };
@@ -2431,6 +2475,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D923BB9517F65845008FA332 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D98388E317F9F87000A2E6ED /* libiconv.dylib in Frameworks */,
+				D98388E117F9F86500A2E6ED /* libbz2.dylib in Frameworks */,
+				D98388DF17F9F85F00A2E6ED /* libz.dylib in Frameworks */,
+				D923BBBD17F66525008FA332 /* libavutil.a in Frameworks */,
+				D923BBBF17F66525008FA332 /* libswscale.a in Frameworks */,
+				D923BBBB17F66525008FA332 /* libavfilter.a in Frameworks */,
+				D923BBBA17F66525008FA332 /* libavdevice.a in Frameworks */,
+				D923BBB917F66525008FA332 /* libavcodec.a in Frameworks */,
+				D923BBBE17F66525008FA332 /* libswresample.a in Frameworks */,
+				D923BBBC17F66525008FA332 /* libavformat.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -2453,6 +2514,7 @@
 			isa = PBXGroup;
 			children = (
 				D90FE14A17E1114F00D7C6F5 /* LiveStreamer.app */,
+				D923BB9817F65845008FA332 /* ffmpeg_test */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2460,6 +2522,9 @@
 		D90FE14C17E1114F00D7C6F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D98388E217F9F87000A2E6ED /* libiconv.dylib */,
+				D98388E017F9F86500A2E6ED /* libbz2.dylib */,
+				D98388DE17F9F85F00A2E6ED /* libz.dylib */,
 				D91F316017E268FA00D67D73 /* libbz2.dylib */,
 				D91F315E17E268F200D67D73 /* libiconv.dylib */,
 				D91F315C17E268E700D67D73 /* libz.dylib */,
@@ -2696,6 +2761,44 @@
 				D90FE25917E13D6E00D7C6F5 /* FontAwesome.ttf */,
 			);
 			path = resources;
+			sourceTree = "<group>";
+		};
+		D923BBA417F66524008FA332 /* ffmpeg-test */ = {
+			isa = PBXGroup;
+			children = (
+				D923BBA517F66525008FA332 /* ffmpeg */,
+				D923BBAD17F66525008FA332 /* libs */,
+			);
+			name = "ffmpeg-test";
+			path = "Submodules/FFmpegWrapper/Submodules/FFmpeg-iOS/darwin-x86_64";
+			sourceTree = "<group>";
+		};
+		D923BBA517F66525008FA332 /* ffmpeg */ = {
+			isa = PBXGroup;
+			children = (
+				D923BBA617F66525008FA332 /* cmdutils.c */,
+				D923BBA717F66525008FA332 /* cmdutils.h */,
+				D923BBA817F66525008FA332 /* config.h */,
+				D923BBA917F66525008FA332 /* ffmpeg.c */,
+				D923BBAA17F66525008FA332 /* ffmpeg.h */,
+				D923BBAB17F66525008FA332 /* ffmpeg_filter.c */,
+				D923BBAC17F66525008FA332 /* ffmpeg_opt.c */,
+			);
+			path = ffmpeg;
+			sourceTree = "<group>";
+		};
+		D923BBAD17F66525008FA332 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				D923BBAE17F66525008FA332 /* libavcodec.a */,
+				D923BBAF17F66525008FA332 /* libavdevice.a */,
+				D923BBB017F66525008FA332 /* libavfilter.a */,
+				D923BBB117F66525008FA332 /* libavformat.a */,
+				D923BBB217F66525008FA332 /* libavutil.a */,
+				D923BBB317F66525008FA332 /* libswresample.a */,
+				D923BBB417F66525008FA332 /* libswscale.a */,
+			);
+			path = libs;
 			sourceTree = "<group>";
 		};
 		D93DA33817E90CE900736267 /* libavcodec */ = {
@@ -5169,6 +5272,7 @@
 		D9F0AF9F17ED15FE007D0D08 /* FFmpeg Source */ = {
 			isa = PBXGroup;
 			children = (
+				D923BBA417F66524008FA332 /* ffmpeg-test */,
 				D93DA33817E90CE900736267 /* libavcodec */,
 				D93DA81817E90CFA00736267 /* libavdevice */,
 				D93DA84617E90CFA00736267 /* libavfilter */,
@@ -5214,6 +5318,23 @@
 			productReference = D90FE14A17E1114F00D7C6F5 /* LiveStreamer.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D923BB9717F65845008FA332 /* ffmpeg_test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D923BB9E17F65845008FA332 /* Build configuration list for PBXNativeTarget "ffmpeg_test" */;
+			buildPhases = (
+				D923BB9417F65845008FA332 /* Sources */,
+				D923BB9517F65845008FA332 /* Frameworks */,
+				D923BB9617F65845008FA332 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ffmpeg_test;
+			productName = ffmpeg_test;
+			productReference = D923BB9817F65845008FA332 /* ffmpeg_test */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -5237,6 +5358,7 @@
 			projectRoot = "";
 			targets = (
 				D90FE14917E1114F00D7C6F5 /* LiveStreamer */,
+				D923BB9717F65845008FA332 /* ffmpeg_test */,
 			);
 		};
 /* End PBXProject section */
@@ -5303,6 +5425,17 @@
 				D90FE25D17E13D6E00D7C6F5 /* NSString+FontAwesome.m in Sources */,
 				D90FE25F17E13D6E00D7C6F5 /* UIColor+BButton.m in Sources */,
 				D90FE26617E1405600D7C6F5 /* OWUtilities.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D923BB9417F65845008FA332 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D923BBB817F66525008FA332 /* ffmpeg_opt.c in Sources */,
+				D923BBB617F66525008FA332 /* ffmpeg.c in Sources */,
+				D923BBB517F66525008FA332 /* cmdutils.c in Sources */,
+				D923BBB717F66525008FA332 /* ffmpeg_filter.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5420,6 +5553,64 @@
 			};
 			name = Release;
 		};
+		D923BB9F17F65845008FA332 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Submodules/FFmpegWrapper/Submodules/FFmpeg-iOS/dependencies/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/chrisbal/Documents/OpenWatch/LiveStreamer/Submodules/FFmpegWrapper/Submodules/FFmpeg-iOS/darwin-x86_64/libs",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D923BBA017F65845008FA332 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Submodules/FFmpegWrapper/Submodules/FFmpeg-iOS/dependencies/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/chrisbal/Documents/OpenWatch/LiveStreamer/Submodules/FFmpegWrapper/Submodules/FFmpeg-iOS/darwin-x86_64/libs",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -5437,6 +5628,15 @@
 			buildConfigurations = (
 				D90FE16817E1115000D7C6F5 /* Debug */,
 				D90FE16917E1115000D7C6F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D923BB9E17F65845008FA332 /* Build configuration list for PBXNativeTarget "ffmpeg_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D923BB9F17F65845008FA332 /* Debug */,
+				D923BBA017F65845008FA332 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
