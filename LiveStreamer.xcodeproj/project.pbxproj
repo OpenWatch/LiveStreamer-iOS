@@ -82,6 +82,14 @@
 		D98388DF17F9F85F00A2E6ED /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D98388DE17F9F85F00A2E6ED /* libz.dylib */; };
 		D98388E117F9F86500A2E6ED /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D98388E017F9F86500A2E6ED /* libbz2.dylib */; };
 		D98388E317F9F87000A2E6ED /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D98388E217F9F87000A2E6ED /* libiconv.dylib */; };
+		D9B714F817FB3A8D0074465D /* FFStream.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B714F717FB3A8D0074465D /* FFStream.m */; };
+		D9B714FC17FB3AAF0074465D /* FFFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B714FB17FB3AAF0074465D /* FFFile.m */; };
+		D9B714FF17FB3AC80074465D /* FFInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B714FE17FB3AC80074465D /* FFInputStream.m */; };
+		D9B7150217FB3ADD0074465D /* FFOutputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B7150117FB3ADD0074465D /* FFOutputStream.m */; };
+		D9B7150517FB3B060074465D /* FFInputFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B7150417FB3B060074465D /* FFInputFile.m */; };
+		D9B7150817FB3B1C0074465D /* FFOutputFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B7150717FB3B1C0074465D /* FFOutputFile.m */; };
+		D9B7150D17FB50910074465D /* FFUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B7150C17FB50910074465D /* FFUtilities.m */; };
+		D9B7151017FB57E50074465D /* FFBitstreamFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B7150F17FB57E50074465D /* FFBitstreamFilter.m */; };
 		D9F0AFA717ED1619007D0D08 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F0AFA017ED1619007D0D08 /* libavcodec.a */; };
 		D9F0AFA817ED161A007D0D08 /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F0AFA117ED1619007D0D08 /* libavdevice.a */; };
 		D9F0AFA917ED161A007D0D08 /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F0AFA217ED1619007D0D08 /* libavfilter.a */; };
@@ -2434,6 +2442,22 @@
 		D98388DE17F9F85F00A2E6ED /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
 		D98388E017F9F86500A2E6ED /* libbz2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libbz2.dylib; sourceTree = DEVELOPER_DIR; };
 		D98388E217F9F87000A2E6ED /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
+		D9B714F617FB3A8D0074465D /* FFStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FFStream.h; path = Submodules/FFmpegWrapper/FFmpegWrapper/FFStream.h; sourceTree = "<group>"; };
+		D9B714F717FB3A8D0074465D /* FFStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FFStream.m; path = Submodules/FFmpegWrapper/FFmpegWrapper/FFStream.m; sourceTree = "<group>"; };
+		D9B714FA17FB3AAF0074465D /* FFFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FFFile.h; path = Submodules/FFmpegWrapper/FFmpegWrapper/FFFile.h; sourceTree = "<group>"; };
+		D9B714FB17FB3AAF0074465D /* FFFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FFFile.m; path = Submodules/FFmpegWrapper/FFmpegWrapper/FFFile.m; sourceTree = "<group>"; };
+		D9B714FD17FB3AC80074465D /* FFInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FFInputStream.h; path = Submodules/FFmpegWrapper/FFmpegWrapper/FFInputStream.h; sourceTree = "<group>"; };
+		D9B714FE17FB3AC80074465D /* FFInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FFInputStream.m; path = Submodules/FFmpegWrapper/FFmpegWrapper/FFInputStream.m; sourceTree = "<group>"; };
+		D9B7150017FB3ADD0074465D /* FFOutputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FFOutputStream.h; path = Submodules/FFmpegWrapper/FFmpegWrapper/FFOutputStream.h; sourceTree = "<group>"; };
+		D9B7150117FB3ADD0074465D /* FFOutputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FFOutputStream.m; path = Submodules/FFmpegWrapper/FFmpegWrapper/FFOutputStream.m; sourceTree = "<group>"; };
+		D9B7150317FB3B060074465D /* FFInputFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FFInputFile.h; path = Submodules/FFmpegWrapper/FFmpegWrapper/FFInputFile.h; sourceTree = "<group>"; };
+		D9B7150417FB3B060074465D /* FFInputFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FFInputFile.m; path = Submodules/FFmpegWrapper/FFmpegWrapper/FFInputFile.m; sourceTree = "<group>"; };
+		D9B7150617FB3B1C0074465D /* FFOutputFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FFOutputFile.h; path = Submodules/FFmpegWrapper/FFmpegWrapper/FFOutputFile.h; sourceTree = "<group>"; };
+		D9B7150717FB3B1C0074465D /* FFOutputFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FFOutputFile.m; path = Submodules/FFmpegWrapper/FFmpegWrapper/FFOutputFile.m; sourceTree = "<group>"; };
+		D9B7150B17FB50910074465D /* FFUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FFUtilities.h; path = Submodules/FFmpegWrapper/FFmpegWrapper/FFUtilities.h; sourceTree = "<group>"; };
+		D9B7150C17FB50910074465D /* FFUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FFUtilities.m; path = Submodules/FFmpegWrapper/FFmpegWrapper/FFUtilities.m; sourceTree = "<group>"; };
+		D9B7150E17FB57E50074465D /* FFBitstreamFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FFBitstreamFilter.h; path = Submodules/FFmpegWrapper/FFmpegWrapper/FFBitstreamFilter.h; sourceTree = "<group>"; };
+		D9B7150F17FB57E50074465D /* FFBitstreamFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FFBitstreamFilter.m; path = Submodules/FFmpegWrapper/FFmpegWrapper/FFBitstreamFilter.m; sourceTree = "<group>"; };
 		D9F0AFA017ED1619007D0D08 /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavcodec.a; path = "Submodules/FFmpegWrapper/Submodules/FFmpeg-iOS/dependencies/lib/libavcodec.a"; sourceTree = "<group>"; };
 		D9F0AFA117ED1619007D0D08 /* libavdevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavdevice.a; path = "Submodules/FFmpegWrapper/Submodules/FFmpeg-iOS/dependencies/lib/libavdevice.a"; sourceTree = "<group>"; };
 		D9F0AFA217ED1619007D0D08 /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavfilter.a; path = "Submodules/FFmpegWrapper/Submodules/FFmpeg-iOS/dependencies/lib/libavfilter.a"; sourceTree = "<group>"; };
@@ -2498,8 +2522,7 @@
 		D90FE14117E1114F00D7C6F5 = {
 			isa = PBXGroup;
 			children = (
-				D9F0AFAF17ED1634007D0D08 /* FFmpegWrapper.h */,
-				D9F0AFB017ED1634007D0D08 /* FFmpegWrapper.m */,
+				D9B714F917FB3A920074465D /* FFmpegWrapper */,
 				D9F0AFAE17ED161E007D0D08 /* FFmpeg Libraries */,
 				D9F0AF9F17ED15FE007D0D08 /* FFmpeg Source */,
 				D90FE23817E1275F00D7C6F5 /* Resources */,
@@ -5269,6 +5292,47 @@
 			path = x86;
 			sourceTree = "<group>";
 		};
+		D9B714F917FB3A920074465D /* FFmpegWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				D9B7150917FB3C820074465D /* File */,
+				D9B7150A17FB3C8B0074465D /* Stream */,
+				D9F0AFAF17ED1634007D0D08 /* FFmpegWrapper.h */,
+				D9F0AFB017ED1634007D0D08 /* FFmpegWrapper.m */,
+			);
+			name = FFmpegWrapper;
+			sourceTree = "<group>";
+		};
+		D9B7150917FB3C820074465D /* File */ = {
+			isa = PBXGroup;
+			children = (
+				D9B7150B17FB50910074465D /* FFUtilities.h */,
+				D9B7150C17FB50910074465D /* FFUtilities.m */,
+				D9B7150317FB3B060074465D /* FFInputFile.h */,
+				D9B7150417FB3B060074465D /* FFInputFile.m */,
+				D9B7150617FB3B1C0074465D /* FFOutputFile.h */,
+				D9B7150717FB3B1C0074465D /* FFOutputFile.m */,
+				D9B714FA17FB3AAF0074465D /* FFFile.h */,
+				D9B714FB17FB3AAF0074465D /* FFFile.m */,
+			);
+			name = File;
+			sourceTree = "<group>";
+		};
+		D9B7150A17FB3C8B0074465D /* Stream */ = {
+			isa = PBXGroup;
+			children = (
+				D9B7150E17FB57E50074465D /* FFBitstreamFilter.h */,
+				D9B7150F17FB57E50074465D /* FFBitstreamFilter.m */,
+				D9B7150017FB3ADD0074465D /* FFOutputStream.h */,
+				D9B7150117FB3ADD0074465D /* FFOutputStream.m */,
+				D9B714FD17FB3AC80074465D /* FFInputStream.h */,
+				D9B714FE17FB3AC80074465D /* FFInputStream.m */,
+				D9B714F617FB3A8D0074465D /* FFStream.h */,
+				D9B714F717FB3A8D0074465D /* FFStream.m */,
+			);
+			name = Stream;
+			sourceTree = "<group>";
+		};
 		D9F0AF9F17ED15FE007D0D08 /* FFmpeg Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -5393,28 +5457,36 @@
 				D90FE19417E11D0500D7C6F5 /* DDRange.m in Sources */,
 				D90FE19517E11D0500D7C6F5 /* HTTPAuthenticationRequest.m in Sources */,
 				D90FE19617E11D0500D7C6F5 /* HTTPConnection.m in Sources */,
+				D9B7150817FB3B1C0074465D /* FFOutputFile.m in Sources */,
 				D90FE19717E11D0500D7C6F5 /* HTTPMessage.m in Sources */,
 				D90FE19817E11D0500D7C6F5 /* HTTPServer.m in Sources */,
 				D90FE19917E11D0500D7C6F5 /* MultipartFormDataParser.m in Sources */,
 				D90FE19A17E11D0500D7C6F5 /* MultipartMessageHeader.m in Sources */,
+				D9B7150217FB3ADD0074465D /* FFOutputStream.m in Sources */,
 				D90FE19B17E11D0500D7C6F5 /* MultipartMessageHeaderField.m in Sources */,
 				D90FE19C17E11D0500D7C6F5 /* HTTPAsyncFileResponse.m in Sources */,
 				D90FE19D17E11D0500D7C6F5 /* HTTPDataResponse.m in Sources */,
+				D9B714FC17FB3AAF0074465D /* FFFile.m in Sources */,
 				D90FE19E17E11D0500D7C6F5 /* HTTPDynamicFileResponse.m in Sources */,
 				D90FE19F17E11D0500D7C6F5 /* HTTPErrorResponse.m in Sources */,
 				D90FE1A017E11D0500D7C6F5 /* HTTPFileResponse.m in Sources */,
 				D90FE1A117E11D0500D7C6F5 /* HTTPRedirectResponse.m in Sources */,
+				D9B7150517FB3B060074465D /* FFInputFile.m in Sources */,
 				D90FE1A217E11D0500D7C6F5 /* WebSocket.m in Sources */,
 				D90FE1BC17E11D1F00D7C6F5 /* GCDAsyncSocket.m in Sources */,
 				D90FE1BE17E11D1F00D7C6F5 /* DDAbstractDatabaseLogger.m in Sources */,
 				D90FE1BF17E11D1F00D7C6F5 /* DDASLLogger.m in Sources */,
+				D9B7151017FB57E50074465D /* FFBitstreamFilter.m in Sources */,
 				D90FE1C017E11D1F00D7C6F5 /* DDFileLogger.m in Sources */,
+				D9B714FF17FB3AC80074465D /* FFInputStream.m in Sources */,
 				D90FE1C117E11D1F00D7C6F5 /* DDLog.m in Sources */,
 				D90FE1C217E11D1F00D7C6F5 /* DDTTYLogger.m in Sources */,
+				D9B714F817FB3A8D0074465D /* FFStream.m in Sources */,
 				D90FE1C317E11D1F00D7C6F5 /* ContextFilterLogFormatter.m in Sources */,
 				D90FE1C417E11D1F00D7C6F5 /* DispatchQueueLogFormatter.m in Sources */,
 				D90FE1C817E11D9F00D7C6F5 /* OWRootViewController.m in Sources */,
 				D90FE24617E13BE600D7C6F5 /* OWAppleEncoder.m in Sources */,
+				D9B7150D17FB50910074465D /* FFUtilities.m in Sources */,
 				D90FE24717E13BE600D7C6F5 /* OWCaptureController.m in Sources */,
 				D90FE24817E13BE600D7C6F5 /* OWCaptureViewController.m in Sources */,
 				D90FE24917E13BE600D7C6F5 /* OWSegmentingAppleEncoder.m in Sources */,
