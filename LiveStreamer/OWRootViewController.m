@@ -34,6 +34,7 @@
 }
 
 - (void) testButtonPressed:(id)sender {
+    /*
     NSArray *paths = [[NSBundle mainBundle] pathsForResourcesOfType:@"mp4" inDirectory:@"web"];
     NSString *basePath = [OWUtilities applicationDocumentsDirectory];
     NSString *outputFile = [basePath stringByAppendingPathComponent:@"test.ts"];
@@ -57,13 +58,12 @@
         }];
         *stop = YES;
     }];
-    
+    */
 
-    /*
+    
     OWCaptureViewController *captureViewController = [[OWCaptureViewController alloc] init];
     captureViewController.delegate = self;
     [self presentViewController:captureViewController animated:YES completion:nil];
-     */
 }
 
 

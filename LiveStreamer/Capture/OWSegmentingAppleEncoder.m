@@ -9,6 +9,9 @@
 #import "OWSegmentingAppleEncoder.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "OWUtilities.h"
+#import "OWAppDelegate.h"
+
+#import "HTTPServer.h"
 
 #define kMinVideoBitrate 100000
 #define kMaxVideoBitrate 400000
@@ -18,6 +21,8 @@
 @synthesize queuedAudioEncoder, queuedVideoEncoder;
 @synthesize audioBPS, videoBPS, shouldBeRecording;
 @synthesize segmentCount;
+@synthesize manifestGenerator;
+@synthesize ffmpegWrapper;
 
 - (void) dealloc {
     if (self.segmentationTimer) {
@@ -56,6 +61,31 @@
         //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedBandwidthUpdateNotification:) name:kOWCaptureAPIClientBandwidthNotification object:nil];
         segmentingQueue = dispatch_queue_create("Segmenting Queue", DISPATCH_QUEUE_SERIAL);
         self.segmentCount = 0;
+        self.ffmpegWrapper = [[FFmpegWrapper alloc] init];
+        NSString *manifestFileName = @"test.m3u8";
+        NSString *m3u8Path = [newBasePath stringByAppendingPathComponent:manifestFileName];
+        self.manifestGenerator = [[OWManifestGenerator alloc] initWithM3U8Path:m3u8Path targetSegmentDuration:(int)timeInterval];
+        [OW_APP_DELEGATE.httpServer setDocumentRoot:newBasePath];
+        
+        NSError *error = nil;
+        NSString *htmlFilePath = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"];
+        NSString *crossDomainPath = [[NSBundle mainBundle] pathForResource:@"crossdomain" ofType:@"xml"];
+        NSString *crossdomainOutputPath = [self.basePath stringByAppendingPathComponent:@"crossdomain.xml"];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        [fileManager copyItemAtPath:crossDomainPath toPath:crossdomainOutputPath error:&error];
+        if (error) {
+            NSLog(@"error copying cross domain file: %@", error.userInfo);
+        }
+        NSString *html = [NSString stringWithContentsOfFile:htmlFilePath encoding:NSUTF8StringEncoding error:&error];
+        if (error) {
+            NSLog(@"error loading html: %@", error.userInfo);
+        }
+        NSString *newHTML = [html stringByReplacingOccurrencesOfString:@"{% manifest_file_name %}" withString:manifestFileName];
+        NSString *htmlIndexPath = [self.basePath stringByAppendingPathComponent:@"index.html"];
+        [newHTML writeToFile:htmlIndexPath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+        if (error) {
+            NSLog(@"error writing index.html: %@", error.userInfo);
+        }
     }
     return self;
 }
@@ -179,6 +209,21 @@
 
 - (void) uploadLocalURL:(NSURL*)url {
     NSLog(@"upload local url: %@", url);
+    NSString *inputPath = [url path];
+    NSString *outputPath = [inputPath stringByReplacingOccurrencesOfString:@".mp4" withString:@".ts"];
+    NSDictionary *options = @{kFFmpegOutputFormatKey: @"mpegts"};
+    NSLog(@"converting %@...", inputPath);
+    [ffmpegWrapper convertInputPath:[url path] outputPath:outputPath options:options progressBlock:^(NSUInteger bytesRead, uint64_t totalBytesRead, uint64_t totalBytesExpectedToRead) {
+        float progress = (float)totalBytesRead / totalBytesExpectedToRead;
+        //NSLog(@"progress: %f", progress);
+    } completionBlock:^(BOOL success, NSError *error) {
+        if (success) {
+            NSLog(@"conversion complete");
+            [manifestGenerator appendSegmentPath:outputPath duration:(int)segmentationInterval sequence:segmentCount];
+        } else {
+            NSLog(@"conversion error: %@", error.userInfo);
+        }
+    }];
 }
 
 

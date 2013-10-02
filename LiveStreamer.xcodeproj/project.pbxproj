@@ -67,7 +67,6 @@
 		D91F315D17E268E700D67D73 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D91F315C17E268E700D67D73 /* libz.dylib */; };
 		D91F315F17E268F200D67D73 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D91F315E17E268F200D67D73 /* libiconv.dylib */; };
 		D91F316117E268FA00D67D73 /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D91F316017E268FA00D67D73 /* libbz2.dylib */; };
-		D91F317417E286BB00D67D73 /* web in Resources */ = {isa = PBXBuildFile; fileRef = D91F317317E286BB00D67D73 /* web */; };
 		D923BBB517F66525008FA332 /* cmdutils.c in Sources */ = {isa = PBXBuildFile; fileRef = D923BBA617F66525008FA332 /* cmdutils.c */; };
 		D923BBB617F66525008FA332 /* ffmpeg.c in Sources */ = {isa = PBXBuildFile; fileRef = D923BBA917F66525008FA332 /* ffmpeg.c */; };
 		D923BBB717F66525008FA332 /* ffmpeg_filter.c in Sources */ = {isa = PBXBuildFile; fileRef = D923BBAB17F66525008FA332 /* ffmpeg_filter.c */; };
@@ -79,6 +78,9 @@
 		D923BBBD17F66525008FA332 /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D923BBB217F66525008FA332 /* libavutil.a */; };
 		D923BBBE17F66525008FA332 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D923BBB317F66525008FA332 /* libswresample.a */; };
 		D923BBBF17F66525008FA332 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D923BBB417F66525008FA332 /* libswscale.a */; };
+		D950940717FB956100E2A419 /* OWManifestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D950940617FB956100E2A419 /* OWManifestGenerator.m */; };
+		D950940917FBACD800E2A419 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D950940817FBACD800E2A419 /* index.html */; };
+		D950940B17FBB38300E2A419 /* crossdomain.xml in Resources */ = {isa = PBXBuildFile; fileRef = D950940A17FBB38300E2A419 /* crossdomain.xml */; };
 		D98388DF17F9F85F00A2E6ED /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D98388DE17F9F85F00A2E6ED /* libz.dylib */; };
 		D98388E117F9F86500A2E6ED /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D98388E017F9F86500A2E6ED /* libbz2.dylib */; };
 		D98388E317F9F87000A2E6ED /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D98388E217F9F87000A2E6ED /* libiconv.dylib */; };
@@ -219,7 +221,6 @@
 		D91F315C17E268E700D67D73 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		D91F315E17E268F200D67D73 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		D91F316017E268FA00D67D73 /* libbz2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.dylib; path = usr/lib/libbz2.dylib; sourceTree = SDKROOT; };
-		D91F317317E286BB00D67D73 /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; name = web; path = LiveStreamer/web; sourceTree = "<group>"; };
 		D923BB9817F65845008FA332 /* ffmpeg_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ffmpeg_test; sourceTree = BUILT_PRODUCTS_DIR; };
 		D923BBA617F66525008FA332 /* cmdutils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cmdutils.c; sourceTree = "<group>"; };
 		D923BBA717F66525008FA332 /* cmdutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmdutils.h; sourceTree = "<group>"; };
@@ -2439,6 +2440,10 @@
 		D93DABF217E90D0000736267 /* yuv2rgb.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = yuv2rgb.c; sourceTree = "<group>"; };
 		D93DABF317E90D0000736267 /* yuv2rgb_template.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = yuv2rgb_template.c; sourceTree = "<group>"; };
 		D93DABF417E90D0000736267 /* yuv2rgb.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = yuv2rgb.c; sourceTree = "<group>"; };
+		D950940517FB956100E2A419 /* OWManifestGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWManifestGenerator.h; sourceTree = "<group>"; };
+		D950940617FB956100E2A419 /* OWManifestGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWManifestGenerator.m; sourceTree = "<group>"; };
+		D950940817FBACD800E2A419 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = LiveStreamer/index.html; sourceTree = "<group>"; };
+		D950940A17FBB38300E2A419 /* crossdomain.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = crossdomain.xml; path = LiveStreamer/crossdomain.xml; sourceTree = "<group>"; };
 		D98388DE17F9F85F00A2E6ED /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
 		D98388E017F9F86500A2E6ED /* libbz2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libbz2.dylib; sourceTree = DEVELOPER_DIR; };
 		D98388E217F9F87000A2E6ED /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
@@ -2575,6 +2580,8 @@
 				D90FE15D17E1115000D7C6F5 /* OWAppDelegate.m */,
 				D90FE1C617E11D9F00D7C6F5 /* OWRootViewController.h */,
 				D90FE1C717E11D9F00D7C6F5 /* OWRootViewController.m */,
+				D950940517FB956100E2A419 /* OWManifestGenerator.h */,
+				D950940617FB956100E2A419 /* OWManifestGenerator.m */,
 				D90FE15417E1115000D7C6F5 /* Supporting Files */,
 			);
 			path = LiveStreamer;
@@ -2734,7 +2741,8 @@
 		D90FE23817E1275F00D7C6F5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D91F317317E286BB00D67D73 /* web */,
+				D950940A17FBB38300E2A419 /* crossdomain.xml */,
+				D950940817FBACD800E2A419 /* index.html */,
 				D91F315617E25A0C00D67D73 /* red_dot@2x.png */,
 			);
 			name = Resources;
@@ -5432,10 +5440,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D950940B17FBB38300E2A419 /* crossdomain.xml in Resources */,
+				D950940917FBACD800E2A419 /* index.html in Resources */,
 				D91F315717E25A0C00D67D73 /* red_dot@2x.png in Resources */,
 				D90FE15817E1115000D7C6F5 /* InfoPlist.strings in Resources */,
 				D90FE16017E1115000D7C6F5 /* Default.png in Resources */,
-				D91F317417E286BB00D67D73 /* web in Resources */,
 				D90FE16217E1115000D7C6F5 /* Default@2x.png in Resources */,
 				D90FE16417E1115000D7C6F5 /* Default-568h@2x.png in Resources */,
 				D90FE25E17E13D6E00D7C6F5 /* FontAwesome.ttf in Resources */,
@@ -5466,6 +5475,7 @@
 				D90FE19B17E11D0500D7C6F5 /* MultipartMessageHeaderField.m in Sources */,
 				D90FE19C17E11D0500D7C6F5 /* HTTPAsyncFileResponse.m in Sources */,
 				D90FE19D17E11D0500D7C6F5 /* HTTPDataResponse.m in Sources */,
+				D950940717FB956100E2A419 /* OWManifestGenerator.m in Sources */,
 				D9B714FC17FB3AAF0074465D /* FFFile.m in Sources */,
 				D90FE19E17E11D0500D7C6F5 /* HTTPDynamicFileResponse.m in Sources */,
 				D90FE19F17E11D0500D7C6F5 /* HTTPErrorResponse.m in Sources */,

@@ -52,11 +52,6 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 	[httpServer setPort:4200];
 	
 	// Serve files from our embedded Web folder
-	NSString *webPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"web"];
-	DDLogInfo(@"Setting document root: %@", webPath);
-	
-	[httpServer setDocumentRoot:webPath];
-    
     [self startServer];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

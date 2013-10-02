@@ -7,12 +7,16 @@
 //
 
 #import "OWAppleEncoder.h"
+#import "OWManifestGenerator.h"
+#import "FFmpegWrapper.h"
 
 @interface OWSegmentingAppleEncoder : OWAppleEncoder {
     dispatch_queue_t segmentingQueue;
     NSTimeInterval segmentationInterval;
 }
 
+@property (nonatomic, strong) FFmpegWrapper *ffmpegWrapper;
+@property (nonatomic, strong) OWManifestGenerator *manifestGenerator;
 @property (atomic, retain) AVAssetWriter *queuedAssetWriter;
 @property (atomic, retain) AVAssetWriterInput *queuedAudioEncoder;
 @property (atomic, retain) AVAssetWriterInput *queuedVideoEncoder;
