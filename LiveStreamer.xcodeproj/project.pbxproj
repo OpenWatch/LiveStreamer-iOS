@@ -100,6 +100,7 @@
 		D9F0AFAC17ED161A007D0D08 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F0AFA517ED1619007D0D08 /* libswresample.a */; };
 		D9F0AFAD17ED161A007D0D08 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F0AFA617ED1619007D0D08 /* libswscale.a */; };
 		D9F0AFB117ED1634007D0D08 /* FFmpegWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F0AFB017ED1634007D0D08 /* FFmpegWrapper.m */; };
+		D9FC995417FCC57900AACC4C /* playlist.m3u8 in Resources */ = {isa = PBXBuildFile; fileRef = D9FC995317FCC57900AACC4C /* playlist.m3u8 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -2472,6 +2473,7 @@
 		D9F0AFA617ED1619007D0D08 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswscale.a; path = "Submodules/FFmpegWrapper/Submodules/FFmpeg-iOS/dependencies/lib/libswscale.a"; sourceTree = "<group>"; };
 		D9F0AFAF17ED1634007D0D08 /* FFmpegWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FFmpegWrapper.h; path = Submodules/FFmpegWrapper/FFmpegWrapper/FFmpegWrapper.h; sourceTree = "<group>"; };
 		D9F0AFB017ED1634007D0D08 /* FFmpegWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FFmpegWrapper.m; path = Submodules/FFmpegWrapper/FFmpegWrapper/FFmpegWrapper.m; sourceTree = "<group>"; };
+		D9FC995317FCC57900AACC4C /* playlist.m3u8 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = playlist.m3u8; path = LiveStreamer/playlist.m3u8; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2741,6 +2743,7 @@
 		D90FE23817E1275F00D7C6F5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D9FC995317FCC57900AACC4C /* playlist.m3u8 */,
 				D950940A17FBB38300E2A419 /* crossdomain.xml */,
 				D950940817FBACD800E2A419 /* index.html */,
 				D91F315617E25A0C00D67D73 /* red_dot@2x.png */,
@@ -5442,6 +5445,7 @@
 			files = (
 				D950940B17FBB38300E2A419 /* crossdomain.xml in Resources */,
 				D950940917FBACD800E2A419 /* index.html in Resources */,
+				D9FC995417FCC57900AACC4C /* playlist.m3u8 in Resources */,
 				D91F315717E25A0C00D67D73 /* red_dot@2x.png in Resources */,
 				D90FE15817E1115000D7C6F5 /* InfoPlist.strings in Resources */,
 				D90FE16017E1115000D7C6F5 /* Default.png in Resources */,
@@ -5596,7 +5600,7 @@
 		D90FE16817E1115000D7C6F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Ballinger (XGV4GB4HMH)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LiveStreamer/LiveStreamer-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -5610,6 +5614,7 @@
 					"/Users/chrisbal/Documents/OpenWatch/LiveStreamer/Submodules/FFmpegWrapper/Submodules/FFmpeg-iOS/dependencies/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "D5FC4F01-538B-40A7-B832-C279DC305245";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -5631,6 +5636,7 @@
 					"/Users/chrisbal/Documents/OpenWatch/LiveStreamer/Submodules/FFmpegWrapper/Submodules/FFmpeg-iOS/dependencies/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "D5FC4F01-538B-40A7-B832-C279DC305245";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

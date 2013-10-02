@@ -141,13 +141,20 @@
     NSString *folderPath = [basePath stringByAppendingPathComponent:folderName];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error = nil;
+
+    if ([fileManager fileExistsAtPath:folderPath]) {
+        [fileManager removeItemAtPath:folderPath error:&error];
+    }
+    if (error) {
+        [self showError:error];
+    }
+    
     [fileManager createDirectoryAtPath:folderPath withIntermediateDirectories:YES attributes:nil error:&error];
     if (error) {
         [self showError:error];
     }
-    NSString *hqFilePath = [basePath stringByAppendingPathComponent:@"hq.mp4"];
+    NSString *hqFilePath = [folderPath stringByAppendingPathComponent:@"hq.mp4"];
     NSURL *hqURL = [NSURL fileURLWithPath:hqFilePath];
-    
     
     self.appleEncoder1 = [[OWAppleEncoder alloc] initWithURL:hqURL movieFragmentInterval:CMTimeMakeWithSeconds(5, 30)];
     self.appleEncoder2 = [[OWSegmentingAppleEncoder alloc] initWithBasePath:folderPath segmentationInterval:10.0f];
@@ -393,15 +400,7 @@
 
 - (void)showError:(NSError *)error
 {
-    NSLog(@"Error: %@%@",[error localizedDescription], [error userInfo]);
-    CFRunLoopPerformBlock(CFRunLoopGetMain(), kCFRunLoopCommonModes, ^(void) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[error localizedDescription]
-                                                            message:[error localizedFailureReason]
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-        [alertView show];
-    });
+    NSLog(@"Error: %@", [error userInfo]);
 }
 
 @end

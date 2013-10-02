@@ -62,7 +62,7 @@
         segmentingQueue = dispatch_queue_create("Segmenting Queue", DISPATCH_QUEUE_SERIAL);
         self.segmentCount = 0;
         self.ffmpegWrapper = [[FFmpegWrapper alloc] init];
-        NSString *manifestFileName = @"test.m3u8";
+        NSString *manifestFileName = @"chunklist.m3u8";
         NSString *m3u8Path = [newBasePath stringByAppendingPathComponent:manifestFileName];
         self.manifestGenerator = [[OWManifestGenerator alloc] initWithM3U8Path:m3u8Path targetSegmentDuration:(int)timeInterval];
         [OW_APP_DELEGATE.httpServer setDocumentRoot:newBasePath];
@@ -76,6 +76,13 @@
         if (error) {
             NSLog(@"error copying cross domain file: %@", error.userInfo);
         }
+        NSString *rootPlaylistPath = [[NSBundle mainBundle] pathForResource:@"playlist" ofType:@"m3u8"];
+        NSString *rootPlaylistOutputPath = [self.basePath stringByAppendingPathComponent:@"playlist.m3u8"];
+        [fileManager copyItemAtPath:rootPlaylistPath toPath:rootPlaylistOutputPath error:&error];
+        if (error) {
+            NSLog(@"error copying cross domain file: %@", error.userInfo);
+        }
+        
         NSString *html = [NSString stringWithContentsOfFile:htmlFilePath encoding:NSUTF8StringEncoding error:&error];
         if (error) {
             NSLog(@"error loading html: %@", error.userInfo);
