@@ -157,7 +157,7 @@
     NSURL *hqURL = [NSURL fileURLWithPath:hqFilePath];
     
     self.appleEncoder1 = [[OWAppleEncoder alloc] initWithURL:hqURL movieFragmentInterval:CMTimeMakeWithSeconds(5, 30)];
-    self.appleEncoder2 = [[OWSegmentingAppleEncoder alloc] initWithBasePath:folderPath segmentationInterval:10.0f];
+    self.appleEncoder2 = [[OWSegmentingAppleEncoder alloc] initWithBasePath:folderPath segmentationInterval:5.0f];
     
     testCount++;
     [defaults setObject:@(testCount) forKey:testCountKey];

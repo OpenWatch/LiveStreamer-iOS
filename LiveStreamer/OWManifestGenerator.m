@@ -27,36 +27,41 @@
     return self;
 }
 
-- (void) appendSegmentPath:(NSString *)segmentPath duration:(int)duration sequence:(int)sequence {
-    [self.segments addObject:segmentPath];
+- (void) appendSegmentPath:(NSString *)segmentPath duration:(int)duration sequence:(int)sequence completionBlock:(OWManifestGeneratorCompletionBlock)completionBlock {
+    NSString *segmentName = [segmentPath lastPathComponent];
+    [self.segments addObject:segmentName];
     
     NSMutableArray *lastSegments = [NSMutableArray arrayWithCapacity:3];
     
-    if (segments.count <= 3) {
+    if (segments.count < 3) {
         [lastSegments addObjectsFromArray:segments];
     } else {
         int thirdToLastSegmentIndex = segments.count - 3;
         for (int i = 0; i < 3; i++) {
-            [lastSegments addObject:[segments objectAtIndex:thirdToLastSegmentIndex + i - 1]];
+            [lastSegments addObject:[segments objectAtIndex:thirdToLastSegmentIndex + i]];
         }
     }
     
-    NSString *firstFileName = [[lastSegments objectAtIndex:0] lastPathComponent];
+    NSString *firstFileName = [lastSegments objectAtIndex:0];
     NSString *mediaSequence = [NSString stringWithFormat:@"#EXT-X-MEDIA-SEQUENCE:%@\n", [firstFileName stringByDeletingPathExtension]];
     
     NSMutableString *manifestFileString = [NSMutableString stringWithString:header];
     [manifestFileString appendString:mediaSequence];
     
     for (int i = 0; i < lastSegments.count; i++) {
-        NSString *fileName = [[lastSegments objectAtIndex:i] lastPathComponent];
+        NSString *fileName = [lastSegments objectAtIndex:i];
         
         [manifestFileString appendString:[self lineForFileName:fileName duration:duration]];
     }
     NSError *error = nil;
     NSLog(@"Manifest:\n%@\n", manifestFileString);
     [manifestFileString writeToFile:manifestPath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    BOOL success = YES;
     if (error) {
-        NSLog(@"Error writing manifest file: %@", error.userInfo);
+        success = NO;
+    }
+    if (completionBlock) {
+        completionBlock(success, error);
     }
 }
 

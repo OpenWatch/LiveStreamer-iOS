@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^OWManifestGeneratorCompletionBlock)(BOOL success, NSError *error);
+
 @interface OWManifestGenerator : NSObject
 
 @property (nonatomic, strong) NSString *manifestPath;
@@ -18,6 +20,6 @@
 
 - (id) initWithM3U8Path:(NSString*)path targetSegmentDuration:(int)duration;
 
-- (void) appendSegmentPath:(NSString *)segmentPath duration:(int)duration sequence:(int)sequence;
+- (void) appendSegmentPath:(NSString *)segmentPath duration:(int)duration sequence:(int)sequence completionBlock:(OWManifestGeneratorCompletionBlock)completionBlock;
 
 @end

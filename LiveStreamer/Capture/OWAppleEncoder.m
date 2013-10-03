@@ -18,6 +18,7 @@
 
 - (id) init {
     if (self = [super init]) {
+        self.uuid = [[NSUUID UUID] UUIDString];
     }
     return self;
 }

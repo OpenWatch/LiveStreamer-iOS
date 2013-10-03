@@ -12,6 +12,7 @@
 #import "OWAppDelegate.h"
 
 #import "HTTPServer.h"
+#import "OWS3Client.h"
 
 #define kMinVideoBitrate 100000
 #define kMaxVideoBitrate 400000
@@ -218,15 +219,26 @@
     NSLog(@"upload local url: %@", url);
     NSString *inputPath = [url path];
     NSString *outputPath = [inputPath stringByReplacingOccurrencesOfString:@".mp4" withString:@".ts"];
+    NSString *outputFileName = [outputPath lastPathComponent];
     NSDictionary *options = @{kFFmpegOutputFormatKey: @"mpegts"};
     NSLog(@"converting %@...", inputPath);
-    [ffmpegWrapper convertInputPath:[url path] outputPath:outputPath options:options progressBlock:^(NSUInteger bytesRead, uint64_t totalBytesRead, uint64_t totalBytesExpectedToRead) {
-        float progress = (float)totalBytesRead / totalBytesExpectedToRead;
-        //NSLog(@"progress: %f", progress);
-    } completionBlock:^(BOOL success, NSError *error) {
+    [ffmpegWrapper convertInputPath:[url path] outputPath:outputPath options:options progressBlock:nil completionBlock:^(BOOL success, NSError *error) {
         if (success) {
             NSLog(@"conversion complete");
-            [manifestGenerator appendSegmentPath:outputPath duration:(int)segmentationInterval sequence:segmentCount];
+            [manifestGenerator appendSegmentPath:outputPath duration:(int)segmentationInterval sequence:segmentCount completionBlock:^(BOOL success, NSError *error) {
+                if (success) {
+                    NSString *destinationPath = [NSString stringWithFormat:@"https://openwatch-livestreamer.s3.amazonaws.com/%@/%@", self.uuid, outputFileName];
+                    [[OWS3Client sharedClient] postObjectWithFile:outputPath destinationPath:destinationPath parameters:nil progress:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+                        NSLog(@"%@ progress: %f", outputFileName, (float)totalBytesWritten/totalBytesExpectedToWrite);
+                    } success:^(id responseObject) {
+                        NSLog(@"success: %@", responseObject);
+                    } failure:^(NSError *error) {
+                        NSLog(@"error uploadin: %@", error.userInfo);
+                    }];
+                } else {
+                    NSLog(@"error creating manifest: %@", error.userInfo);
+                }
+            }];
         } else {
             NSLog(@"conversion error: %@", error.userInfo);
         }

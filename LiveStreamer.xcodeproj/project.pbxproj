@@ -81,6 +81,24 @@
 		D950940717FB956100E2A419 /* OWManifestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D950940617FB956100E2A419 /* OWManifestGenerator.m */; };
 		D950940917FBACD800E2A419 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D950940817FBACD800E2A419 /* index.html */; };
 		D950940B17FBB38300E2A419 /* crossdomain.xml in Resources */ = {isa = PBXBuildFile; fileRef = D950940A17FBB38300E2A419 /* crossdomain.xml */; };
+		D959ED9417FE1424000B0A5C /* OWS3Client.m in Sources */ = {isa = PBXBuildFile; fileRef = D959ED9317FE1424000B0A5C /* OWS3Client.m */; };
+		D959EDCE17FE1A6C000B0A5C /* AFAmazonS3Client.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EDCD17FE1A6C000B0A5C /* AFAmazonS3Client.m */; };
+		D959EDE217FE1BD2000B0A5C /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EDD017FE1BD2000B0A5C /* AFHTTPClient.m */; };
+		D959EDE317FE1BD2000B0A5C /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EDD217FE1BD2000B0A5C /* AFHTTPRequestOperation.m */; };
+		D959EDE417FE1BD2000B0A5C /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EDD417FE1BD2000B0A5C /* AFImageRequestOperation.m */; };
+		D959EDE517FE1BD2000B0A5C /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EDD617FE1BD2000B0A5C /* AFJSONRequestOperation.m */; };
+		D959EDE617FE1BD2000B0A5C /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EDD817FE1BD2000B0A5C /* AFNetworkActivityIndicatorManager.m */; };
+		D959EDE717FE1BD2000B0A5C /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EDDB17FE1BD2000B0A5C /* AFPropertyListRequestOperation.m */; };
+		D959EDE817FE1BD2000B0A5C /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EDDD17FE1BD2000B0A5C /* AFURLConnectionOperation.m */; };
+		D959EDE917FE1BD2000B0A5C /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EDDF17FE1BD2000B0A5C /* AFXMLRequestOperation.m */; };
+		D959EDEA17FE1BD2000B0A5C /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EDE117FE1BD2000B0A5C /* UIImageView+AFNetworking.m */; };
+		D959EDED17FE1C36000B0A5C /* AFKissXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EDEC17FE1C36000B0A5C /* AFKissXMLRequestOperation.m */; };
+		D959EDFF17FE1C78000B0A5C /* DDXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EDF217FE1C78000B0A5C /* DDXMLElementAdditions.m */; };
+		D959EE0017FE1C78000B0A5C /* NSString+DDXML.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EDF517FE1C78000B0A5C /* NSString+DDXML.m */; };
+		D959EE0117FE1C78000B0A5C /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EDF817FE1C78000B0A5C /* DDXMLDocument.m */; };
+		D959EE0217FE1C78000B0A5C /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EDFA17FE1C78000B0A5C /* DDXMLElement.m */; };
+		D959EE0317FE1C78000B0A5C /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EDFC17FE1C78000B0A5C /* DDXMLNode.m */; };
+		D959EE0517FE1C94000B0A5C /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D959EE0417FE1C94000B0A5C /* libxml2.dylib */; };
 		D98388DF17F9F85F00A2E6ED /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D98388DE17F9F85F00A2E6ED /* libz.dylib */; };
 		D98388E117F9F86500A2E6ED /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D98388E017F9F86500A2E6ED /* libbz2.dylib */; };
 		D98388E317F9F87000A2E6ED /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D98388E217F9F87000A2E6ED /* libiconv.dylib */; };
@@ -2445,6 +2463,45 @@
 		D950940617FB956100E2A419 /* OWManifestGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWManifestGenerator.m; sourceTree = "<group>"; };
 		D950940817FBACD800E2A419 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = LiveStreamer/index.html; sourceTree = "<group>"; };
 		D950940A17FBB38300E2A419 /* crossdomain.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = crossdomain.xml; path = LiveStreamer/crossdomain.xml; sourceTree = "<group>"; };
+		D959ED9017FE1294000B0A5C /* OWSecrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OWSecrets.h; path = LiveStreamer/OWSecrets.h; sourceTree = "<group>"; };
+		D959ED9217FE1424000B0A5C /* OWS3Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWS3Client.h; sourceTree = "<group>"; };
+		D959ED9317FE1424000B0A5C /* OWS3Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWS3Client.m; sourceTree = "<group>"; };
+		D959EDCC17FE1A6C000B0A5C /* AFAmazonS3Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAmazonS3Client.h; sourceTree = "<group>"; };
+		D959EDCD17FE1A6C000B0A5C /* AFAmazonS3Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFAmazonS3Client.m; sourceTree = "<group>"; };
+		D959EDCF17FE1BD2000B0A5C /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
+		D959EDD017FE1BD2000B0A5C /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
+		D959EDD117FE1BD2000B0A5C /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		D959EDD217FE1BD2000B0A5C /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		D959EDD317FE1BD2000B0A5C /* AFImageRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageRequestOperation.h; sourceTree = "<group>"; };
+		D959EDD417FE1BD2000B0A5C /* AFImageRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageRequestOperation.m; sourceTree = "<group>"; };
+		D959EDD517FE1BD2000B0A5C /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONRequestOperation.h; sourceTree = "<group>"; };
+		D959EDD617FE1BD2000B0A5C /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONRequestOperation.m; sourceTree = "<group>"; };
+		D959EDD717FE1BD2000B0A5C /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		D959EDD817FE1BD2000B0A5C /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		D959EDD917FE1BD2000B0A5C /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		D959EDDA17FE1BD2000B0A5C /* AFPropertyListRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPropertyListRequestOperation.h; sourceTree = "<group>"; };
+		D959EDDB17FE1BD2000B0A5C /* AFPropertyListRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFPropertyListRequestOperation.m; sourceTree = "<group>"; };
+		D959EDDC17FE1BD2000B0A5C /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		D959EDDD17FE1BD2000B0A5C /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		D959EDDE17FE1BD2000B0A5C /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFXMLRequestOperation.h; sourceTree = "<group>"; };
+		D959EDDF17FE1BD2000B0A5C /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
+		D959EDE017FE1BD2000B0A5C /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		D959EDE117FE1BD2000B0A5C /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		D959EDEB17FE1C36000B0A5C /* AFKissXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFKissXMLRequestOperation.h; path = Submodules/AFKissXMLRequestOperation/AFKissXMLRequestOperation.h; sourceTree = "<group>"; };
+		D959EDEC17FE1C36000B0A5C /* AFKissXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFKissXMLRequestOperation.m; path = Submodules/AFKissXMLRequestOperation/AFKissXMLRequestOperation.m; sourceTree = "<group>"; };
+		D959EDF117FE1C78000B0A5C /* DDXMLElementAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElementAdditions.h; sourceTree = "<group>"; };
+		D959EDF217FE1C78000B0A5C /* DDXMLElementAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLElementAdditions.m; sourceTree = "<group>"; };
+		D959EDF417FE1C78000B0A5C /* NSString+DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DDXML.h"; sourceTree = "<group>"; };
+		D959EDF517FE1C78000B0A5C /* NSString+DDXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DDXML.m"; sourceTree = "<group>"; };
+		D959EDF617FE1C78000B0A5C /* DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXML.h; sourceTree = "<group>"; };
+		D959EDF717FE1C78000B0A5C /* DDXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLDocument.h; sourceTree = "<group>"; };
+		D959EDF817FE1C78000B0A5C /* DDXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLDocument.m; sourceTree = "<group>"; };
+		D959EDF917FE1C78000B0A5C /* DDXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElement.h; sourceTree = "<group>"; };
+		D959EDFA17FE1C78000B0A5C /* DDXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLElement.m; sourceTree = "<group>"; };
+		D959EDFB17FE1C78000B0A5C /* DDXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLNode.h; sourceTree = "<group>"; };
+		D959EDFC17FE1C78000B0A5C /* DDXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLNode.m; sourceTree = "<group>"; };
+		D959EDFE17FE1C78000B0A5C /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
+		D959EE0417FE1C94000B0A5C /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		D98388DE17F9F85F00A2E6ED /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
 		D98388E017F9F86500A2E6ED /* libbz2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libbz2.dylib; sourceTree = DEVELOPER_DIR; };
 		D98388E217F9F87000A2E6ED /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
@@ -2481,6 +2538,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D959EE0517FE1C94000B0A5C /* libxml2.dylib in Frameworks */,
 				D9F0AFA917ED161A007D0D08 /* libavfilter.a in Frameworks */,
 				D91F316117E268FA00D67D73 /* libbz2.dylib in Frameworks */,
 				D9F0AFAD17ED161A007D0D08 /* libswscale.a in Frameworks */,
@@ -2529,6 +2587,7 @@
 		D90FE14117E1114F00D7C6F5 = {
 			isa = PBXGroup;
 			children = (
+				D959ED9017FE1294000B0A5C /* OWSecrets.h */,
 				D9B714F917FB3A920074465D /* FFmpegWrapper */,
 				D9F0AFAE17ED161E007D0D08 /* FFmpeg Libraries */,
 				D9F0AF9F17ED15FE007D0D08 /* FFmpeg Source */,
@@ -2552,6 +2611,7 @@
 		D90FE14C17E1114F00D7C6F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D959EE0417FE1C94000B0A5C /* libxml2.dylib */,
 				D98388E217F9F87000A2E6ED /* libiconv.dylib */,
 				D98388E017F9F86500A2E6ED /* libbz2.dylib */,
 				D98388DE17F9F85F00A2E6ED /* libz.dylib */,
@@ -2577,6 +2637,8 @@
 		D90FE15317E1115000D7C6F5 /* LiveStreamer */ = {
 			isa = PBXGroup;
 			children = (
+				D959ED9217FE1424000B0A5C /* OWS3Client.h */,
+				D959ED9317FE1424000B0A5C /* OWS3Client.m */,
 				D90FE23D17E13BE600D7C6F5 /* Capture */,
 				D90FE15C17E1115000D7C6F5 /* OWAppDelegate.h */,
 				D90FE15D17E1115000D7C6F5 /* OWAppDelegate.m */,
@@ -2734,6 +2796,10 @@
 		D90FE23717E1275900D7C6F5 /* Submodules */ = {
 			isa = PBXGroup;
 			children = (
+				D959EDEF17FE1C78000B0A5C /* KissXML */,
+				D959EDEE17FE1C39000B0A5C /* AFKissXMLRequestOperation */,
+				D959EDCB17FE1A6C000B0A5C /* AFAmazonS3Client */,
+				D959EDAE17FE199C000B0A5C /* AFNetworking */,
 				D90FE25317E13D6E00D7C6F5 /* BButton */,
 				D90FE1A317E11D0800D7C6F5 /* CocoaHTTPServer */,
 			);
@@ -5303,6 +5369,96 @@
 			path = x86;
 			sourceTree = "<group>";
 		};
+		D959EDAE17FE199C000B0A5C /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				D959EDCF17FE1BD2000B0A5C /* AFHTTPClient.h */,
+				D959EDD017FE1BD2000B0A5C /* AFHTTPClient.m */,
+				D959EDD117FE1BD2000B0A5C /* AFHTTPRequestOperation.h */,
+				D959EDD217FE1BD2000B0A5C /* AFHTTPRequestOperation.m */,
+				D959EDD317FE1BD2000B0A5C /* AFImageRequestOperation.h */,
+				D959EDD417FE1BD2000B0A5C /* AFImageRequestOperation.m */,
+				D959EDD517FE1BD2000B0A5C /* AFJSONRequestOperation.h */,
+				D959EDD617FE1BD2000B0A5C /* AFJSONRequestOperation.m */,
+				D959EDD717FE1BD2000B0A5C /* AFNetworkActivityIndicatorManager.h */,
+				D959EDD817FE1BD2000B0A5C /* AFNetworkActivityIndicatorManager.m */,
+				D959EDD917FE1BD2000B0A5C /* AFNetworking.h */,
+				D959EDDA17FE1BD2000B0A5C /* AFPropertyListRequestOperation.h */,
+				D959EDDB17FE1BD2000B0A5C /* AFPropertyListRequestOperation.m */,
+				D959EDDC17FE1BD2000B0A5C /* AFURLConnectionOperation.h */,
+				D959EDDD17FE1BD2000B0A5C /* AFURLConnectionOperation.m */,
+				D959EDDE17FE1BD2000B0A5C /* AFXMLRequestOperation.h */,
+				D959EDDF17FE1BD2000B0A5C /* AFXMLRequestOperation.m */,
+				D959EDE017FE1BD2000B0A5C /* UIImageView+AFNetworking.h */,
+				D959EDE117FE1BD2000B0A5C /* UIImageView+AFNetworking.m */,
+			);
+			name = AFNetworking;
+			path = Submodules/AFNetworking/AFNetworking;
+			sourceTree = "<group>";
+		};
+		D959EDCB17FE1A6C000B0A5C /* AFAmazonS3Client */ = {
+			isa = PBXGroup;
+			children = (
+				D959EDCC17FE1A6C000B0A5C /* AFAmazonS3Client.h */,
+				D959EDCD17FE1A6C000B0A5C /* AFAmazonS3Client.m */,
+			);
+			name = AFAmazonS3Client;
+			path = Submodules/AFAmazonS3Client/AFAmazonS3Client;
+			sourceTree = "<group>";
+		};
+		D959EDEE17FE1C39000B0A5C /* AFKissXMLRequestOperation */ = {
+			isa = PBXGroup;
+			children = (
+				D959EDEB17FE1C36000B0A5C /* AFKissXMLRequestOperation.h */,
+				D959EDEC17FE1C36000B0A5C /* AFKissXMLRequestOperation.m */,
+			);
+			name = AFKissXMLRequestOperation;
+			sourceTree = "<group>";
+		};
+		D959EDEF17FE1C78000B0A5C /* KissXML */ = {
+			isa = PBXGroup;
+			children = (
+				D959EDF017FE1C78000B0A5C /* Additions */,
+				D959EDF317FE1C78000B0A5C /* Categories */,
+				D959EDF617FE1C78000B0A5C /* DDXML.h */,
+				D959EDF717FE1C78000B0A5C /* DDXMLDocument.h */,
+				D959EDF817FE1C78000B0A5C /* DDXMLDocument.m */,
+				D959EDF917FE1C78000B0A5C /* DDXMLElement.h */,
+				D959EDFA17FE1C78000B0A5C /* DDXMLElement.m */,
+				D959EDFB17FE1C78000B0A5C /* DDXMLNode.h */,
+				D959EDFC17FE1C78000B0A5C /* DDXMLNode.m */,
+				D959EDFD17FE1C78000B0A5C /* Private */,
+			);
+			name = KissXML;
+			path = Submodules/KissXML/KissXML;
+			sourceTree = "<group>";
+		};
+		D959EDF017FE1C78000B0A5C /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				D959EDF117FE1C78000B0A5C /* DDXMLElementAdditions.h */,
+				D959EDF217FE1C78000B0A5C /* DDXMLElementAdditions.m */,
+			);
+			path = Additions;
+			sourceTree = "<group>";
+		};
+		D959EDF317FE1C78000B0A5C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D959EDF417FE1C78000B0A5C /* NSString+DDXML.h */,
+				D959EDF517FE1C78000B0A5C /* NSString+DDXML.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		D959EDFD17FE1C78000B0A5C /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				D959EDFE17FE1C78000B0A5C /* DDXMLPrivate.h */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
 		D9B714F917FB3A920074465D /* FFmpegWrapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -5468,11 +5624,14 @@
 				D90FE19217E11D0500D7C6F5 /* DDData.m in Sources */,
 				D90FE19317E11D0500D7C6F5 /* DDNumber.m in Sources */,
 				D90FE19417E11D0500D7C6F5 /* DDRange.m in Sources */,
+				D959EDE417FE1BD2000B0A5C /* AFImageRequestOperation.m in Sources */,
 				D90FE19517E11D0500D7C6F5 /* HTTPAuthenticationRequest.m in Sources */,
 				D90FE19617E11D0500D7C6F5 /* HTTPConnection.m in Sources */,
 				D9B7150817FB3B1C0074465D /* FFOutputFile.m in Sources */,
 				D90FE19717E11D0500D7C6F5 /* HTTPMessage.m in Sources */,
 				D90FE19817E11D0500D7C6F5 /* HTTPServer.m in Sources */,
+				D959EDE617FE1BD2000B0A5C /* AFNetworkActivityIndicatorManager.m in Sources */,
+				D959EE0217FE1C78000B0A5C /* DDXMLElement.m in Sources */,
 				D90FE19917E11D0500D7C6F5 /* MultipartFormDataParser.m in Sources */,
 				D90FE19A17E11D0500D7C6F5 /* MultipartMessageHeader.m in Sources */,
 				D9B7150217FB3ADD0074465D /* FFOutputStream.m in Sources */,
@@ -5480,6 +5639,7 @@
 				D90FE19C17E11D0500D7C6F5 /* HTTPAsyncFileResponse.m in Sources */,
 				D90FE19D17E11D0500D7C6F5 /* HTTPDataResponse.m in Sources */,
 				D950940717FB956100E2A419 /* OWManifestGenerator.m in Sources */,
+				D959EDFF17FE1C78000B0A5C /* DDXMLElementAdditions.m in Sources */,
 				D9B714FC17FB3AAF0074465D /* FFFile.m in Sources */,
 				D90FE19E17E11D0500D7C6F5 /* HTTPDynamicFileResponse.m in Sources */,
 				D90FE19F17E11D0500D7C6F5 /* HTTPErrorResponse.m in Sources */,
@@ -5491,9 +5651,13 @@
 				D90FE1BE17E11D1F00D7C6F5 /* DDAbstractDatabaseLogger.m in Sources */,
 				D90FE1BF17E11D1F00D7C6F5 /* DDASLLogger.m in Sources */,
 				D9B7151017FB57E50074465D /* FFBitstreamFilter.m in Sources */,
+				D959EDEA17FE1BD2000B0A5C /* UIImageView+AFNetworking.m in Sources */,
 				D90FE1C017E11D1F00D7C6F5 /* DDFileLogger.m in Sources */,
+				D959EE0117FE1C78000B0A5C /* DDXMLDocument.m in Sources */,
 				D9B714FF17FB3AC80074465D /* FFInputStream.m in Sources */,
 				D90FE1C117E11D1F00D7C6F5 /* DDLog.m in Sources */,
+				D959EDE817FE1BD2000B0A5C /* AFURLConnectionOperation.m in Sources */,
+				D959EDE517FE1BD2000B0A5C /* AFJSONRequestOperation.m in Sources */,
 				D90FE1C217E11D1F00D7C6F5 /* DDTTYLogger.m in Sources */,
 				D9B714F817FB3A8D0074465D /* FFStream.m in Sources */,
 				D90FE1C317E11D1F00D7C6F5 /* ContextFilterLogFormatter.m in Sources */,
@@ -5503,11 +5667,20 @@
 				D9B7150D17FB50910074465D /* FFUtilities.m in Sources */,
 				D90FE24717E13BE600D7C6F5 /* OWCaptureController.m in Sources */,
 				D90FE24817E13BE600D7C6F5 /* OWCaptureViewController.m in Sources */,
+				D959EDE717FE1BD2000B0A5C /* AFPropertyListRequestOperation.m in Sources */,
+				D959EE0017FE1C78000B0A5C /* NSString+DDXML.m in Sources */,
+				D959EDCE17FE1A6C000B0A5C /* AFAmazonS3Client.m in Sources */,
+				D959EDE317FE1BD2000B0A5C /* AFHTTPRequestOperation.m in Sources */,
 				D90FE24917E13BE600D7C6F5 /* OWSegmentingAppleEncoder.m in Sources */,
+				D959EDE217FE1BD2000B0A5C /* AFHTTPClient.m in Sources */,
 				D90FE24C17E13C0B00D7C6F5 /* OWVideoProcessor.m in Sources */,
 				D90FE24F17E13C9300D7C6F5 /* OWTimerView.m in Sources */,
+				D959EE0317FE1C78000B0A5C /* DDXMLNode.m in Sources */,
 				D90FE25217E13CBA00D7C6F5 /* OWRecordingActivityIndicatorView.m in Sources */,
+				D959ED9417FE1424000B0A5C /* OWS3Client.m in Sources */,
+				D959EDED17FE1C36000B0A5C /* AFKissXMLRequestOperation.m in Sources */,
 				D90FE25C17E13D6E00D7C6F5 /* BButton.m in Sources */,
+				D959EDE917FE1BD2000B0A5C /* AFXMLRequestOperation.m in Sources */,
 				D90FE25D17E13D6E00D7C6F5 /* NSString+FontAwesome.m in Sources */,
 				D90FE25F17E13D6E00D7C6F5 /* UIColor+BButton.m in Sources */,
 				D90FE26617E1405600D7C6F5 /* OWUtilities.m in Sources */,
@@ -5606,7 +5779,11 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Submodules/AFNetworking/AFNetworking/",
 					"$(SRCROOT)/Submodules/FFmpegWrapper/Submodules/FFmpeg-iOS/dependencies/include",
+					"$(SRCROOT)/Submodules/AFAmazonS3Client/AFAmazonS3Client/",
+					"$(SRCROOT)/Submodules/KissXML/KissXML/",
+					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "LiveStreamer/LiveStreamer-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -5628,13 +5805,18 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Submodules/AFNetworking/AFNetworking/",
 					"$(SRCROOT)/Submodules/FFmpegWrapper/Submodules/FFmpeg-iOS/dependencies/include",
+					"$(SRCROOT)/Submodules/AFAmazonS3Client/AFAmazonS3Client/",
+					"$(SRCROOT)/Submodules/KissXML/KissXML/",
+					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "LiveStreamer/LiveStreamer-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/chrisbal/Documents/OpenWatch/LiveStreamer/Submodules/FFmpegWrapper/Submodules/FFmpeg-iOS/dependencies/lib",
 				);
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "D5FC4F01-538B-40A7-B832-C279DC305245";
 				WRAPPER_EXTENSION = app;

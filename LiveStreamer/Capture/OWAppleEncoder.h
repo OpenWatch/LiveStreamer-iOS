@@ -17,6 +17,7 @@
     CMFormatDescriptionRef audioFormatDescription;
 }
 
+@property (nonatomic, strong) NSString *uuid;
 @property (nonatomic, retain) NSURL *movieURL;
 
 @property (atomic, retain) AVAssetWriterInput *audioEncoder;
