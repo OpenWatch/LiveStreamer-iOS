@@ -10,6 +10,7 @@
 #import "OWCaptureViewController.h"
 #import "OWUtilities.h"
 #import "FFmpegWrapper.h"
+#import "OWS3Client.h"
 
 @interface OWRootViewController ()
 
@@ -64,6 +65,18 @@
     OWCaptureViewController *captureViewController = [[OWCaptureViewController alloc] init];
     captureViewController.delegate = self;
     [self presentViewController:captureViewController animated:YES completion:nil];
+     
+    
+    
+    /*NSString *testPath = [[NSBundle mainBundle] pathForResource:@"2" ofType:@"ts"];
+    [[OWS3Client sharedClient] postObjectWithFile:testPath destinationPath:@"https://openwatch-livestreamer.s3.amazonaws.com/playlist.m3u8" parameters:nil progress:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+        NSLog(@"progress: %f", (float)totalBytesWritten/totalBytesExpectedToWrite);
+    } success:^(id responseObject) {
+        NSLog(@"success: %@", responseObject);
+    } failure:^(NSError *error) {
+        NSLog(@"error uploadin: %@", error.userInfo);
+    }];
+     */
 }
 
 

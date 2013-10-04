@@ -81,7 +81,7 @@
 		D950940717FB956100E2A419 /* OWManifestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D950940617FB956100E2A419 /* OWManifestGenerator.m */; };
 		D950940917FBACD800E2A419 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D950940817FBACD800E2A419 /* index.html */; };
 		D950940B17FBB38300E2A419 /* crossdomain.xml in Resources */ = {isa = PBXBuildFile; fileRef = D950940A17FBB38300E2A419 /* crossdomain.xml */; };
-		D959ED9417FE1424000B0A5C /* OWS3Client.m in Sources */ = {isa = PBXBuildFile; fileRef = D959ED9317FE1424000B0A5C /* OWS3Client.m */; };
+		D959ED9417FE1424000B0A5C /* OWAFS3Client.m in Sources */ = {isa = PBXBuildFile; fileRef = D959ED9317FE1424000B0A5C /* OWAFS3Client.m */; };
 		D959EDCE17FE1A6C000B0A5C /* AFAmazonS3Client.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EDCD17FE1A6C000B0A5C /* AFAmazonS3Client.m */; };
 		D959EDE217FE1BD2000B0A5C /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EDD017FE1BD2000B0A5C /* AFHTTPClient.m */; };
 		D959EDE317FE1BD2000B0A5C /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EDD217FE1BD2000B0A5C /* AFHTTPRequestOperation.m */; };
@@ -99,6 +99,11 @@
 		D959EE0217FE1C78000B0A5C /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EDFA17FE1C78000B0A5C /* DDXMLElement.m */; };
 		D959EE0317FE1C78000B0A5C /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EDFC17FE1C78000B0A5C /* DDXMLNode.m */; };
 		D959EE0517FE1C94000B0A5C /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D959EE0417FE1C94000B0A5C /* libxml2.dylib */; };
+		D959EE0717FE6797000B0A5C /* 2.ts in Resources */ = {isa = PBXBuildFile; fileRef = D959EE0617FE6797000B0A5C /* 2.ts */; };
+		D959EE1A17FE6A6E000B0A5C /* libS3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D959EE1517FE6A1C000B0A5C /* libS3.a */; };
+		D959EE1B17FE6A71000B0A5C /* libRuntime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D959EE1117FE6A1C000B0A5C /* libRuntime.a */; };
+		D959EE1E17FE80A3000B0A5C /* OWS3Client.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EE1D17FE80A3000B0A5C /* OWS3Client.m */; };
+		D959EE2817FEAC1E000B0A5C /* OWSharedS3Client.m in Sources */ = {isa = PBXBuildFile; fileRef = D959EE2717FEAC1E000B0A5C /* OWSharedS3Client.m */; };
 		D98388DF17F9F85F00A2E6ED /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D98388DE17F9F85F00A2E6ED /* libz.dylib */; };
 		D98388E117F9F86500A2E6ED /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D98388E017F9F86500A2E6ED /* libbz2.dylib */; };
 		D98388E317F9F87000A2E6ED /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D98388E217F9F87000A2E6ED /* libiconv.dylib */; };
@@ -120,6 +125,37 @@
 		D9F0AFB117ED1634007D0D08 /* FFmpegWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F0AFB017ED1634007D0D08 /* FFmpegWrapper.m */; };
 		D9FC995417FCC57900AACC4C /* playlist.m3u8 in Resources */ = {isa = PBXBuildFile; fileRef = D9FC995317FCC57900AACC4C /* playlist.m3u8 */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D959EE1017FE6A1C000B0A5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D959EE0817FE6A1C000B0A5C /* Runtime.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D069663F1234D53400BFBB1E;
+			remoteInfo = Runtime;
+		};
+		D959EE1417FE6A1C000B0A5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D959EE0B17FE6A1C000B0A5C /* S3.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D069663F1234D53400BFBB1E;
+			remoteInfo = S3;
+		};
+		D959EE1617FE6A65000B0A5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D959EE0B17FE6A1C000B0A5C /* S3.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = S3;
+		};
+		D959EE1817FE6A68000B0A5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D959EE0817FE6A1C000B0A5C /* Runtime.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = Runtime;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		D923BB9617F65845008FA332 /* CopyFiles */ = {
@@ -2464,8 +2500,8 @@
 		D950940817FBACD800E2A419 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = LiveStreamer/index.html; sourceTree = "<group>"; };
 		D950940A17FBB38300E2A419 /* crossdomain.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = crossdomain.xml; path = LiveStreamer/crossdomain.xml; sourceTree = "<group>"; };
 		D959ED9017FE1294000B0A5C /* OWSecrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OWSecrets.h; path = LiveStreamer/OWSecrets.h; sourceTree = "<group>"; };
-		D959ED9217FE1424000B0A5C /* OWS3Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWS3Client.h; sourceTree = "<group>"; };
-		D959ED9317FE1424000B0A5C /* OWS3Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWS3Client.m; sourceTree = "<group>"; };
+		D959ED9217FE1424000B0A5C /* OWAFS3Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWAFS3Client.h; sourceTree = "<group>"; };
+		D959ED9317FE1424000B0A5C /* OWAFS3Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWAFS3Client.m; sourceTree = "<group>"; };
 		D959EDCC17FE1A6C000B0A5C /* AFAmazonS3Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAmazonS3Client.h; sourceTree = "<group>"; };
 		D959EDCD17FE1A6C000B0A5C /* AFAmazonS3Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFAmazonS3Client.m; sourceTree = "<group>"; };
 		D959EDCF17FE1BD2000B0A5C /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
@@ -2502,6 +2538,13 @@
 		D959EDFC17FE1C78000B0A5C /* DDXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLNode.m; sourceTree = "<group>"; };
 		D959EDFE17FE1C78000B0A5C /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
 		D959EE0417FE1C94000B0A5C /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		D959EE0617FE6797000B0A5C /* 2.ts */ = {isa = PBXFileReference; lastKnownFileType = file; name = 2.ts; path = Media/2.ts; sourceTree = "<group>"; };
+		D959EE0817FE6A1C000B0A5C /* Runtime.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Runtime.xcodeproj; path = "Submodules/aws-sdk-ios/src/Runtime.xcodeproj"; sourceTree = "<group>"; };
+		D959EE0B17FE6A1C000B0A5C /* S3.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = S3.xcodeproj; path = "Submodules/aws-sdk-ios/src/S3.xcodeproj"; sourceTree = "<group>"; };
+		D959EE1C17FE80A3000B0A5C /* OWS3Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWS3Client.h; sourceTree = "<group>"; };
+		D959EE1D17FE80A3000B0A5C /* OWS3Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWS3Client.m; sourceTree = "<group>"; };
+		D959EE2617FEAC1E000B0A5C /* OWSharedS3Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWSharedS3Client.h; sourceTree = "<group>"; };
+		D959EE2717FEAC1E000B0A5C /* OWSharedS3Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWSharedS3Client.m; sourceTree = "<group>"; };
 		D98388DE17F9F85F00A2E6ED /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
 		D98388E017F9F86500A2E6ED /* libbz2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libbz2.dylib; sourceTree = DEVELOPER_DIR; };
 		D98388E217F9F87000A2E6ED /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
@@ -2538,6 +2581,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D959EE1B17FE6A71000B0A5C /* libRuntime.a in Frameworks */,
+				D959EE1A17FE6A6E000B0A5C /* libS3.a in Frameworks */,
 				D959EE0517FE1C94000B0A5C /* libxml2.dylib in Frameworks */,
 				D9F0AFA917ED161A007D0D08 /* libavfilter.a in Frameworks */,
 				D91F316117E268FA00D67D73 /* libbz2.dylib in Frameworks */,
@@ -2587,6 +2632,9 @@
 		D90FE14117E1114F00D7C6F5 = {
 			isa = PBXGroup;
 			children = (
+				D959EE0817FE6A1C000B0A5C /* Runtime.xcodeproj */,
+				D959EE0B17FE6A1C000B0A5C /* S3.xcodeproj */,
+				D959EE0617FE6797000B0A5C /* 2.ts */,
 				D959ED9017FE1294000B0A5C /* OWSecrets.h */,
 				D9B714F917FB3A920074465D /* FFmpegWrapper */,
 				D9F0AFAE17ED161E007D0D08 /* FFmpeg Libraries */,
@@ -2637,8 +2685,12 @@
 		D90FE15317E1115000D7C6F5 /* LiveStreamer */ = {
 			isa = PBXGroup;
 			children = (
-				D959ED9217FE1424000B0A5C /* OWS3Client.h */,
-				D959ED9317FE1424000B0A5C /* OWS3Client.m */,
+				D959EE2617FEAC1E000B0A5C /* OWSharedS3Client.h */,
+				D959EE2717FEAC1E000B0A5C /* OWSharedS3Client.m */,
+				D959EE1C17FE80A3000B0A5C /* OWS3Client.h */,
+				D959EE1D17FE80A3000B0A5C /* OWS3Client.m */,
+				D959ED9217FE1424000B0A5C /* OWAFS3Client.h */,
+				D959ED9317FE1424000B0A5C /* OWAFS3Client.m */,
 				D90FE23D17E13BE600D7C6F5 /* Capture */,
 				D90FE15C17E1115000D7C6F5 /* OWAppDelegate.h */,
 				D90FE15D17E1115000D7C6F5 /* OWAppDelegate.m */,
@@ -5459,6 +5511,22 @@
 			path = Private;
 			sourceTree = "<group>";
 		};
+		D959EE0917FE6A1C000B0A5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D959EE1117FE6A1C000B0A5C /* libRuntime.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D959EE0C17FE6A1C000B0A5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D959EE1517FE6A1C000B0A5C /* libS3.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		D9B714F917FB3A920074465D /* FFmpegWrapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -5543,6 +5611,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				D959EE1917FE6A68000B0A5C /* PBXTargetDependency */,
+				D959EE1717FE6A65000B0A5C /* PBXTargetDependency */,
 			);
 			name = LiveStreamer;
 			productName = LiveStreamer;
@@ -5586,6 +5656,16 @@
 			mainGroup = D90FE14117E1114F00D7C6F5;
 			productRefGroup = D90FE14B17E1114F00D7C6F5 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D959EE0917FE6A1C000B0A5C /* Products */;
+					ProjectRef = D959EE0817FE6A1C000B0A5C /* Runtime.xcodeproj */;
+				},
+				{
+					ProductGroup = D959EE0C17FE6A1C000B0A5C /* Products */;
+					ProjectRef = D959EE0B17FE6A1C000B0A5C /* S3.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D90FE14917E1114F00D7C6F5 /* LiveStreamer */,
@@ -5593,6 +5673,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D959EE1117FE6A1C000B0A5C /* libRuntime.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRuntime.a;
+			remoteRef = D959EE1017FE6A1C000B0A5C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D959EE1517FE6A1C000B0A5C /* libS3.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libS3.a;
+			remoteRef = D959EE1417FE6A1C000B0A5C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D90FE14817E1114F00D7C6F5 /* Resources */ = {
@@ -5606,6 +5703,7 @@
 				D90FE15817E1115000D7C6F5 /* InfoPlist.strings in Resources */,
 				D90FE16017E1115000D7C6F5 /* Default.png in Resources */,
 				D90FE16217E1115000D7C6F5 /* Default@2x.png in Resources */,
+				D959EE0717FE6797000B0A5C /* 2.ts in Resources */,
 				D90FE16417E1115000D7C6F5 /* Default-568h@2x.png in Resources */,
 				D90FE25E17E13D6E00D7C6F5 /* FontAwesome.ttf in Resources */,
 			);
@@ -5677,13 +5775,15 @@
 				D90FE24F17E13C9300D7C6F5 /* OWTimerView.m in Sources */,
 				D959EE0317FE1C78000B0A5C /* DDXMLNode.m in Sources */,
 				D90FE25217E13CBA00D7C6F5 /* OWRecordingActivityIndicatorView.m in Sources */,
-				D959ED9417FE1424000B0A5C /* OWS3Client.m in Sources */,
+				D959ED9417FE1424000B0A5C /* OWAFS3Client.m in Sources */,
 				D959EDED17FE1C36000B0A5C /* AFKissXMLRequestOperation.m in Sources */,
 				D90FE25C17E13D6E00D7C6F5 /* BButton.m in Sources */,
 				D959EDE917FE1BD2000B0A5C /* AFXMLRequestOperation.m in Sources */,
 				D90FE25D17E13D6E00D7C6F5 /* NSString+FontAwesome.m in Sources */,
+				D959EE1E17FE80A3000B0A5C /* OWS3Client.m in Sources */,
 				D90FE25F17E13D6E00D7C6F5 /* UIColor+BButton.m in Sources */,
 				D90FE26617E1405600D7C6F5 /* OWUtilities.m in Sources */,
+				D959EE2817FEAC1E000B0A5C /* OWSharedS3Client.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5699,6 +5799,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D959EE1717FE6A65000B0A5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = S3;
+			targetProxy = D959EE1617FE6A65000B0A5C /* PBXContainerItemProxy */;
+		};
+		D959EE1917FE6A68000B0A5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Runtime;
+			targetProxy = D959EE1817FE6A68000B0A5C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D90FE15617E1115000D7C6F5 /* InfoPlist.strings */ = {
@@ -5784,6 +5897,7 @@
 					"$(SRCROOT)/Submodules/AFAmazonS3Client/AFAmazonS3Client/",
 					"$(SRCROOT)/Submodules/KissXML/KissXML/",
 					/usr/include/libxml2,
+					"$(SRCROOT)/Submodules/aws-sdk-ios/src/include",
 				);
 				INFOPLIST_FILE = "LiveStreamer/LiveStreamer-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -5810,6 +5924,7 @@
 					"$(SRCROOT)/Submodules/AFAmazonS3Client/AFAmazonS3Client/",
 					"$(SRCROOT)/Submodules/KissXML/KissXML/",
 					/usr/include/libxml2,
+					"$(SRCROOT)/Submodules/aws-sdk-ios/src/include",
 				);
 				INFOPLIST_FILE = "LiveStreamer/LiveStreamer-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
