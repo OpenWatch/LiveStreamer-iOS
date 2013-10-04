@@ -22,7 +22,7 @@
 
 - (id) init {
     if (self = [super initWithAccessKey:AWS_ACCESS_KEY_ID secretKey:AWS_SECRET_KEY]) {
-        self.region = US_WEST_2;
+        self.region = US_EAST_1;
         self.useSSL = NO;
     }
     return self;

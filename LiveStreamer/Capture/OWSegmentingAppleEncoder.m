@@ -17,6 +17,8 @@
 #define kMinVideoBitrate 100000
 #define kMaxVideoBitrate 400000
 
+#define BUCKET_NAME @"openwatch-livestreamer"
+
 @implementation OWSegmentingAppleEncoder
 @synthesize segmentationTimer, queuedAssetWriter;
 @synthesize queuedAudioEncoder, queuedVideoEncoder;
@@ -94,6 +96,14 @@
         if (error) {
             NSLog(@"error writing index.html: %@", error.userInfo);
         }
+        
+        NSString *playlistPath = [[NSBundle mainBundle] pathForResource:@"playlist" ofType:@"m3u8"];
+        NSString *playlistKey = [NSString stringWithFormat:@"%@/%@",self.uuid, [playlistPath lastPathComponent]];
+        [[OWSharedS3Client sharedClient] postObjectWithFile:playlistPath bucket:BUCKET_NAME key:playlistKey acl:@"public-read" success:^(S3PutObjectResponse *responseObject) {
+            NSLog(@"success sending first manifest");
+        } failure:^(NSError *error) {
+            NSLog(@"error: %@", error.userInfo);
+        }];
     }
     return self;
 }
@@ -222,16 +232,15 @@
     NSString *outputFileName = [outputPath lastPathComponent];
     NSDictionary *options = @{kFFmpegOutputFormatKey: @"mpegts"};
     NSLog(@"%@ conversion...", outputFileName);
-    NSString *bucketName = @"openwatch-livestreamer";
     [ffmpegWrapper convertInputPath:[url path] outputPath:outputPath options:options progressBlock:nil completionBlock:^(BOOL success, NSError *error) {
         if (success) {
             NSLog(@"%@ conversion complete", outputFileName);
             NSString *segmentKey = [NSString stringWithFormat:@"%@/%@", self.uuid, outputFileName];
-            [[OWSharedS3Client sharedClient] postObjectWithFile:outputPath bucket:bucketName key:segmentKey acl:@"public-read" success:^(S3PutObjectResponse *responseObject) {
+            [[OWSharedS3Client sharedClient] postObjectWithFile:outputPath bucket:BUCKET_NAME key:segmentKey acl:@"public-read" success:^(S3PutObjectResponse *responseObject) {
                 [manifestGenerator appendSegmentPath:outputPath duration:(int)segmentationInterval sequence:segmentCount completionBlock:^(BOOL success, NSError *error) {
                     if (success) {
                         NSString *manifestKey = [NSString stringWithFormat:@"%@/%@", self.uuid, [manifestGenerator.manifestPath lastPathComponent]];
-                        [[OWSharedS3Client sharedClient] postObjectWithFile:manifestGenerator.manifestPath bucket:bucketName key:manifestKey acl:@"public-read" success:^(S3PutObjectResponse *responseObject) {
+                        [[OWSharedS3Client sharedClient] postObjectWithFile:manifestGenerator.manifestPath bucket:BUCKET_NAME key:manifestKey acl:@"public-read" success:^(S3PutObjectResponse *responseObject) {
                             NSLog(@"success updating manifest after uploading %@", outputFileName);
                         } failure:^(NSError *error) {
                             NSLog(@"error uplaoding manifest after %@", outputFileName);
