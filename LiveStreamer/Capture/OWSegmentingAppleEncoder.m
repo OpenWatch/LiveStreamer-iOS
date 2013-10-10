@@ -11,7 +11,6 @@
 #import "OWUtilities.h"
 #import "OWAppDelegate.h"
 
-#import "HTTPServer.h"
 #import "OWSharedS3Client.h"
 
 #define kMinVideoBitrate 100000
@@ -68,7 +67,6 @@
         NSString *manifestFileName = @"chunklist.m3u8";
         NSString *m3u8Path = [newBasePath stringByAppendingPathComponent:manifestFileName];
         self.manifestGenerator = [[OWManifestGenerator alloc] initWithM3U8Path:m3u8Path targetSegmentDuration:(int)timeInterval];
-        [OW_APP_DELEGATE.httpServer setDocumentRoot:newBasePath];
         
         NSError *error = nil;
         NSString *htmlFilePath = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"];

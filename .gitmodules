@@ -22,3 +22,6 @@
 [submodule "Submodules/KissXML"]
 	path = Submodules/KissXML
 	url = https://github.com/robbiehanson/KissXML.git
+[submodule "Submodules/OWS3Client"]
+	path = Submodules/OWS3Client
+	url = git@github.com:OpenWatch/OWS3Client.git

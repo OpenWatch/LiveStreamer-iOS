@@ -15,7 +15,6 @@
 @interface OWAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, strong) HTTPServer *httpServer;
 @property (nonatomic) BOOL forceLandscapeRight;
 
 @end

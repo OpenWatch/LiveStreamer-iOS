@@ -10,7 +10,6 @@
 #import "OWCaptureViewController.h"
 #import "OWUtilities.h"
 #import "FFmpegWrapper.h"
-#import "OWS3Client.h"
 
 @interface OWRootViewController ()
 
